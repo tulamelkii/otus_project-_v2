@@ -1,0 +1,67 @@
+---
+ - name: install haproxy
+   hosts: haproxy1
+   become: yes
+   roles:
+   - ntpd
+   - keepalived
+   - haprox
+   - tls_ssl
+   - rebooted
+   tags:
+   - haproxy
+
+ - name: install haproxy
+   hosts: haproxy2
+   become: yes
+   roles:
+   - ntpd
+   - keepalived
+   - haprox
+   - tls_ssl
+   - rebooted
+   tags:
+   - haproxy
+
+ - name: install Wordpress node1
+   hosts: node1
+   become: yes
+   roles:
+   - ntpd
+   - wordpress
+   - tls_ssl
+   - rebooted
+   - galera_db 
+   tags:  
+   - node1
+ 
+ - name: install Wordpress node2
+   hosts: node2
+   become: yes
+   roles:
+   - ntpd
+   - wordpress
+   - tls_ssl
+   - rebooted
+   - galera_db 
+   tags:  
+   - node2
+ 
+ - name: install Wordpress node3
+   hosts: node3
+   become: yes
+   roles:
+   - ntpd
+   - wordpress
+   - tls_ssl
+   - rebooted
+   - galera_db 
+   tags:  
+   - node3
+ 
+ - name:
+   hosts: ha
+   become: yes
+   roles:
+   - rebooted
+...
