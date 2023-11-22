@@ -1,14 +1,25 @@
 ---
-# tasks file for rebooted
-- name: reboot all hosts
-  block:
-  - shell: systemctl reboot
-    async: 300
-    poll: 0
-    ignore_errors: true
+- name: Reboot
+  reboot:
+    reboot_timeout: 300
 
-  - name: wait for system hosts
-    wait_for_connection:
-    delay: 60
-    timeout: 300
+
+
+
+
+
+
+#v2
+# tasks file for rebooted
+#- name: reboot all hosts
+#  block:
+#  - shell: systemctl reboot
+#    async: 300
+#    poll: 0
+#    ignore_errors: true
+
+#  - name: wait for system hosts
+#    wait_for_connection:
+#    delay: 60
+#    timeout: 300
 
