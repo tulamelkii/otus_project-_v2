@@ -1,0 +1,51 @@
+---
+# tasks file for elasticsearch
+- name: Ensure gnupg is installed
+  apt:
+    name: gnupg
+    state: present
+
+- name: import elastick key
+  apt_key:
+     url: http://elasticrepo.serveradmin.ru/elastic.asc
+     state: present
+
+- name: install Elasticsearch
+  apt_repository:
+    repo: deb http://elasticrepo.serveradmin.ru bullseye main
+    update_cache: yes
+
+- name:
+  apt:
+    update_cache: yes
+    name: 
+    - elasticsearch
+    - kibana
+    - logstash
+    update_cache: yes
+
+- name: preference elast
+  lineinfile:
+    dest: /etc/elasticsearch/elasticsearch.yml
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: "^#network.host: 192.168.0.1", line: "network.host: 127.0.0.1"}
+    - { regexp: "http.host: 0.0.0.0" , line: "http.host: 127.0.0.1"}
+    
+- name: service enable
+  service:
+    name: elasticsearch 
+    state: started
+    enabled: yes
+
+- name: preference kibana
+  lineinfile:
+    dest: /etc/kibana/kibana.yml
+    regexp: '^#server.host: "localhost"'
+    line: 'server.host: "192.168.2.8"'
+    
+
+
+
+  
