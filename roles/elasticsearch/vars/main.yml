@@ -1,2 +1,7 @@
 ---
 # vars file for elasticsearch
+http_ca: "/etc/elasticsearch/certs/http_ca.crt"
+http: "/etc/elasticsearch/certs/http.p12"
+transport: "/etc/elasticsearch/certs/transport.p12"
+kib_certs: "/etc/kibana/certs/"
+

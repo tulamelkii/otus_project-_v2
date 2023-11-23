@@ -42,8 +42,42 @@
 - name: preference kibana
   lineinfile:
     dest: /etc/kibana/kibana.yml
-    regexp: '^#server.host: "localhost"'
-    line: 'server.host: "192.168.2.8"'
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^#server.host: "localhost"', line: 'server.host: "192.168.56.15"'}
+    - { regexp: '^#elasticsearch.ssl.certificateAuthorities', line: "elasticsearch.ssl.certificateAuthorities: [ '/etc/kibana/certs/http_ca.crt' ]" }
+    - { regexp: '^#elasticsearch.hosts', line: "elasticsearch.hosts: ['https://localhost:9200']" }
+    - { regexp: "^#elasticsearch.password", line: "elasticsearch.password:'1qaz@WSX'" }
+
+- name: create dir
+  file:
+    path: "{{ kib_certs }}"
+    state: directory
+
+- name: copy sign serts elastic
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items:
+    - { src: "{{ http_ca }}", dest: "{{ kib_certs }}" }
+    - { src: "{{ http }}", dest: "{{ kib_certs }}" }
+    - { src: "{{ transport }}", dest: "{{ kib_certs }}" }
+
+- name: change mode
+  file:
+    path: "{{ kib_certs }}"
+    state: directory
+    recurse: yes
+    owner: root
+    group: kibana
+
+
+      
+  
+
+
     
 
 
