@@ -9,7 +9,7 @@
    - tls_ssl
    - rebooted
    tags:
-   - haproxy
+   - haproxy1
 
  - name: install haproxy
    hosts: haproxy2
@@ -21,7 +21,7 @@
    - tls_ssl
    - rebooted
    tags:
-   - haproxy
+   - haproxy2
 
  - name: install Wordpress node1
    hosts: node1
@@ -59,9 +59,24 @@
    tags:  
    - node3
  
- - name:
+ - name: Reboot 2 front
    hosts: ha
    become: yes
    roles:
    - rebooted
+
+     # - name: Check status db
+     #hosts: node1
+     #become: yes
+     # roles:
+     #- checkdb
+     #tags:
+     #- check
+ - name: insall elk 
+   hosts: elk
+   become: yes
+   roles:
+   - elasticsearch
+   tags:
+   - elk
 ...
