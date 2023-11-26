@@ -76,7 +76,10 @@
    hosts: elk
    become: yes
    roles:
+   - elk_repa
    - elasticsearch
+   - kibana
+   - logstash
    tags:
    - elk
 ...

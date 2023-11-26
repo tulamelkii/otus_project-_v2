@@ -58,6 +58,18 @@ MACHINES = {
                 ]
  },
 
+:elk => {
+        :box_name => "tulamelkii/VDebian12",
+        :box_version => "12.2.7",
+        :vm_name => "elk",
+        :net => [
+          {ip: '192.168.2.8', adapter: 2, netmask: "255.255.255.240"},
+          {ip: '192.168.56.15', adapter: 4},
+
+                ]
+ },
+
+
 
 }
 Vagrant.configure("2") do |config|
@@ -74,6 +86,7 @@ Vagrant.configure("2") do |config|
       end
        box.vm.provider :virtualbox do |v|
         v.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
+        v.memory = 2000
       end
 
   
