@@ -1,0 +1,115 @@
+---
+# tasks file for elasticsearch
+- name: Ensure gnupg is installed
+  apt:
+    name: gnupg
+    state: present
+
+- name: import elastick key
+  apt_key:
+     url: http://elasticrepo.serveradmin.ru/elastic.asc
+     state: present
+
+- name: install Elasticsearch
+  apt_repository:
+    repo: deb http://elasticrepo.serveradmin.ru bullseye main
+    update_cache: yes
+
+- name:
+  apt:
+    name: 
+    - elasticsearch
+    - kibana
+    - logstash
+
+- name: preference elast
+  lineinfile:
+    dest: /etc/elasticsearch/elasticsearch.yml
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: "^#network.host: 192.168.0.1", line: "network.host: 127.0.0.1"}
+    - { regexp: "http.host: 0.0.0.0" , line: "http.host: 127.0.0.1"}
+
+- name: service enable
+  service:
+    name: elasticsearch 
+    state: started
+    enabled: yes
+
+
+- name: rest
+  shell:
+    cmd: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system -b
+  register: reset_cmd
+
+- name: rest
+  shell:
+    cmd: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -b
+  register: reset2_cmd
+ 
+    
+    #- name: Update Elasticsearch user password
+    # ansible.builtin.uri:
+    #url: "http://localhost:9200/_security/user/_password?pretty"
+    #method: PUT
+    #url_username: 'kibana_system'
+    #url_password: "{{ my_password }}"  
+    #body:
+    # password: "1qaz@WSX" 
+    #headers:
+    #  Content-Type: "application/json"
+    #register: result
+
+- name: preference kibana
+  lineinfile:
+    dest: /etc/kibana/kibana.yml
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    with_items:
+    - { regexp: '^#server.host: "localhost"', line: 'server.host: "192.168.56.15"'}
+    - { regexp: '^#elasticsearch.ssl.certificateAuthorities', line: "elasticsearch.ssl.certificateAuthorities: [ '/etc/kibana/certs/http_ca.crt' ]" }
+    - { regexp: '^#elasticsearch.hosts', line: "elasticsearch.hosts: ['https://localhost:9200']" }
+    - { regexp: "^#elasticsearch.password", line: "elasticsearch.password: '{{ my_password }}' " }
+    - { regexp: "^#elasticsearch.username", line: "elasticsearch.username: 'kibana_system'" }
+
+- name: create dir
+  file:
+    path: "{{ kib_certs }}"
+    state: directory
+
+- name: copy sign serts elastic
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items:
+    - { src: "{{ http_ca }}", dest: "{{ kib_certs }}" }
+    - { src: "{{ http }}", dest: "{{ kib_certs }}" }
+    - { src: "{{ transport }}", dest: "{{ kib_certs }}" }
+
+- name: change mode
+  file:
+    path: "{{ kib_certs }}"
+    state: directory
+    recurse: yes
+    owner: root
+    group: kibana
+
+- name: service enable
+  service:
+    name: kibana 
+    state: started
+    enabled: yes
+     
+#- name: service enable
+#  service:
+#    name: elasticsearch 
+#    state: started
+#    enabled: yes
+
+    
+
+
+
+  

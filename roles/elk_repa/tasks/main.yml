@@ -1,0 +1,17 @@
+---
+# tasks file for elk_repa
+- name: Ensure gnupg is installed
+  apt:
+    name: gnupg
+    state: present
+
+- name: import elastick key
+  apt_key:
+     url: http://elasticrepo.serveradmin.ru/elastic.asc
+     state: present
+
+- name: install Elasticsearch
+  apt_repository:
+    repo: deb http://elasticrepo.serveradmin.ru bullseye main
+    update_cache: yes
+

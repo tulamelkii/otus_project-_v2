@@ -1,0 +1,11 @@
+---
+# tasks file for checkdb
+- name: check cluster mariadb
+  command: mysql -u "{{ userdb }}" -p "{{ password }}" -e "SHOW STATUS LIKE 'wsrep_cluster_size';"
+  register: cluster_status
+ 
+    # change_when: false
+- name: Display MariaDB cluster status
+  debug:
+    var: cluster_status.stdout_lines
+

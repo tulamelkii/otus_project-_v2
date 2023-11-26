@@ -1,0 +1,51 @@
+---
+# tasks file for logstash
+- name: install kibana
+  apt:
+    name: 
+    - logstash
+
+- name: rest user elasic
+  shell:
+    cmd: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -b
+  register: reset_elst
+  changed_when: false
+
+- name: template
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "log_input.j2", dest: "/etc/logstash/conf.d/input.conf" }
+    - { src: "log_output.j2", dest: "/etc/logstash/conf.d/output.conf" }
+      # when: reset_elst.stdout == "Absent"
+ 
+- name: copy sign serts logst
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items:
+    - { src: "{{ http_c }}", dest: "{{ logst_certs }}" }
+    - { src: "{{ htt }}", dest: "{{ logst_certs }}" }
+    - { src: "{{ transpor }}", dest: "{{ logst_certs }}" }
+
+- name: template
+  template:
+    src: filter.j2
+    dest: /etc/logstash/conf.d/filter.conf
+
+- name: change mode
+  file:
+    path: "{{ logst_certs }}"
+    state: directory
+    recurse: yes
+    owner: root
+    group: logstash
+
+- name: service enable
+  service:
+    name: logstash 
+    state: started
+    enabled: yes
+
