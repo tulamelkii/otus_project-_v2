@@ -9,20 +9,11 @@
   shell:
     cmd: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system -b
   register: reset_cmd
-    # changed_when: false
 
-- name: preference kibana
-  lineinfile:
+- name: template kibana
+  template:
+    src: kibana.j2
     dest: /etc/kibana/kibana.yml
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-  with_items:
-    - { regexp: '^#server.host: "localhost"', line: 'server.host: "192.168.56.15"'}
-    - { regexp: '^#elasticsearch.ssl.certificateAuthorities', line: "elasticsearch.ssl.certificateAuthorities: [ '/etc/kibana/certs/http_ca.crt' ]" }
-    - { regexp: '^#elasticsearch.hosts', line: "elasticsearch.hosts: ['https://localhost:9200']" }
-    - { regexp: "^#elasticsearch.password", line: "elasticsearch.password: '{{ my_password }}' " }
-    - { regexp: "^#elasticsearch.username", line: "elasticsearch.username: 'kibana_system'" }
-      # when: reset_cmd.stdout == "Absent"
 
 - name: create dir
   file:
