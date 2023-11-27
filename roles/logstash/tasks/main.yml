@@ -9,7 +9,7 @@
   shell:
     cmd: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -b
   register: reset_elst
-  changed_when: false
+  
 
 - name: template
   template:
