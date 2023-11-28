@@ -1,6 +1,6 @@
 ---
 # tasks file for filebeat
-- name: install kibana
+- name: install filebeat
   apt:
     name: 
     - filebeat

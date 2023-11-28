@@ -31,9 +31,11 @@
    hosts: node1
    become: yes
    roles:
+   - elk_repa
    - ntpd
    - wordpress
    - tls_ssl
+   - filebeat
    - rebooted
    - galera_db 
    tags:  
@@ -43,9 +45,11 @@
    hosts: node2
    become: yes
    roles:
+   - elk_repa
    - ntpd
    - wordpress
    - tls_ssl
+   - filebeat
    - rebooted
    - galera_db 
    tags:  
@@ -55,9 +59,11 @@
    hosts: node3
    become: yes
    roles:
+   - elk_repa
    - ntpd
    - wordpress
    - tls_ssl
+   - filebeat
    - rebooted
    - galera_db 
    tags:  
@@ -85,7 +91,8 @@
    - elasticsearch
    - kibana
    - logstash
-   - reboot
+   - filebeat
+   - rebooted
    tags:
    - elk
 ...

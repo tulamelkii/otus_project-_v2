@@ -2,25 +2,31 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-      - /var/log/nginx/*-access.log
+      - /var/log/nginx/*
   fields:
-    type: nginx_access
+    type: nginx
   fields_under_root: true
   scan_frequency: 5s
 
 - type: log
   enabled: true
   paths:
-      - /var/log/nginx/*-error.log
+      - /var/log/apache2/*
   fields:
-    type: nginx_error
+    type: apache2
   fields_under_root: true
   scan_frequency: 5s
+
+- type: log
+  enabled: true
+  paths:
+      - /var/log/mysql/*
+  fields:
+    type: mysql
+  fields_under_root: true
+  scan_frequency: 5s
+
 
 output.logstash:
   hosts: ["192.168.2.8:5044"]
 
-xpack.monitoring:
-  enabled: true
-  elasticsearch:
-    hosts: ["http://192.168.2.8:9200"]
