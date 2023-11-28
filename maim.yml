@@ -3,10 +3,12 @@
    hosts: haproxy1
    become: yes
    roles:
+   - elk_repa
    - ntpd
    - keepalived
    - haprox
    - tls_ssl
+   - filebeat
    - rebooted
    tags:
    - haproxy1
@@ -15,10 +17,12 @@
    hosts: haproxy2
    become: yes
    roles:
+   - elk_repa
    - ntpd
    - keepalived
    - haprox
    - tls_ssl
+   - filebeat   
    - rebooted
    tags:
    - haproxy2
@@ -77,9 +81,11 @@
    become: yes
    roles:
    - elk_repa
+   - tls_ssl
    - elasticsearch
    - kibana
    - logstash
+   - reboot
    tags:
    - elk
 ...

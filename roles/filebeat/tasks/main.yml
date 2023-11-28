@@ -1,0 +1,18 @@
+---
+# tasks file for filebeat
+- name: install kibana
+  apt:
+    name: 
+    - filebeat
+
+- name: template filebeat
+  template:
+    src: filebeat_nginx.j2
+    dest: /etc/filebeat/filebeat.yml 
+
+- name: service
+  service:
+    name: filebeat
+    state: started
+    enabled: yes
+
