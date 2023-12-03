@@ -9,6 +9,8 @@
    - haprox
    - tls_ssl
    - filebeat
+   - docker
+   - box_nodexp
    - rebooted
    tags:
    - haproxy1
@@ -22,7 +24,9 @@
    - keepalived
    - haprox
    - tls_ssl
-   - filebeat   
+   - filebeat
+   - docker
+   - box_nodexp
    - rebooted
    tags:
    - haproxy2
@@ -36,6 +40,8 @@
    - wordpress
    - tls_ssl
    - filebeat
+   - docker
+   - box_nodexp
    - rebooted
    - galera_db 
    tags:  
@@ -50,6 +56,8 @@
    - wordpress
    - tls_ssl
    - filebeat
+   - docker
+   - box_nodexp
    - rebooted
    - galera_db 
    tags:  
@@ -64,6 +72,8 @@
    - wordpress
    - tls_ssl
    - filebeat
+   - docker
+   - box_nodexp
    - rebooted
    - galera_db 
    tags:  
@@ -92,7 +102,26 @@
    - kibana
    - logstash
    - filebeat
+   - docker
+   - box_nodexp
    - rebooted
    tags:
    - elk
+ 
+ - name: insall monitoring
+   hosts: prom
+   become: yes
+   roles:
+   - docker
+   - elk_repa
+   - ntpd
+   - box_prometheus
+   - box_grafana
+   - docker
+   - box_nodexp
+   - filebeat
+   - rebooted
+   tags:
+   - prom
+
 ...

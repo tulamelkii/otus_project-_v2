@@ -1,6 +1,6 @@
 ---
 # tasks file for logstash
-- name: install kibana
+- name: install logst
   apt:
     name: 
     - logstash

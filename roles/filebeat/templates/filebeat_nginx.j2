@@ -6,7 +6,7 @@ filebeat.inputs:
   fields:
     type: nginx
   fields_under_root: true
-  scan_frequency: 5s
+  scan_frequency: 15s
 
 - type: log
   enabled: true
@@ -15,16 +15,16 @@ filebeat.inputs:
   fields:
     type: apache2
   fields_under_root: true
-  scan_frequency: 5s
+  scan_frequency: 15s
 
 - type: log
   enabled: true
   paths:
-      - /var/log/mysql/*
+      - /var/log/mysql/error.log
   fields:
     type: mysql
   fields_under_root: true
-  scan_frequency: 5s
+  scan_frequency: 55s
 
 
 output.logstash:

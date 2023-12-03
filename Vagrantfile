@@ -69,6 +69,16 @@ MACHINES = {
                 ]
  },
 
+:prom => {
+        :box_name => "tulamelkii/VDebian12",
+        :box_version => "12.2.7",
+        :vm_name => "prom",
+        :net => [
+          {ip: '192.168.2.9', adapter: 2, netmask: "255.255.255.240"},
+          {ip: '192.168.56.16', adapter: 4},
+
+                ]
+ },
 
 
 }
@@ -90,14 +100,14 @@ Vagrant.configure("2") do |config|
       end
 
   
-# if boxconfig[:vm_name] == "barman"
-#       box.vm.provision "ansible" do |ansible|
-#        ansible.playbook = "main.yml"
-#        ansible.inventory_path = "host"
-#        ansible.host_key_checking = "false"
-#        ansible.limit = "all"
-#         end
-#       end
+ if boxconfig[:vm_name] == "prom"
+       box.vm.provision "ansible" do |ansible|
+        ansible.playbook = "maim.yml"
+        ansible.inventory_path = "host"
+        ansible.host_key_checking = "false"
+        ansible.limit = "all"
+         end
+       end
     end
   end
 end

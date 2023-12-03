@@ -5,15 +5,22 @@
     name: 
     - kibana
 
+
+- name: template
+  template:
+    src: kibana.j2
+    dest: /etc/kibana/kibana.yml
+
 - name: rest
   shell:
     cmd: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system -b
   register: reset_cmd
 
-- name: template kibana
-  template:
-    src: kibana.j2
-    dest: /etc/kibana/kibana.yml
+- name:
+  lineinfile:
+    path: /etc/kibana/kibana.yml
+    regexp: '^elasticsearch.password'
+    line: "elasticsearch.password: '{{ kibana_system }}'"
 
 - name: create dir
   file:
@@ -25,10 +32,20 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     remote_src: yes
+
   with_items:
     - { src: "{{ http_ca }}", dest: "{{ kib_certs }}" }
     - { src: "{{ http }}", dest: "{{ kib_certs }}" }
     - { src: "{{ transport }}", dest: "{{ kib_certs }}" }
+
+- name: copy cert
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items:
+    - { src: "/etc/ssl/private/priv.key", dest: "{{ kib_certs }}" }
+    - { src: "/etc/ssl/certs/sign_key.crt", dest: "{{ kib_certs }}" }
 
 - name: change mode
   file:
