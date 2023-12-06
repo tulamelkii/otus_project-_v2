@@ -1,89 +1,123 @@
 ---
- - name: install haproxy
-   hosts: haproxy1
-   become: yes
-   roles:
-   - elk_repa
-   - ntpd
-   - keepalived
-   - haprox
-   - tls_ssl
-   - filebeat
-   - docker
-   - box_nodexp
-   - rebooted
-   tags:
-   - haproxy1
+- name: insall monitoring
+  hosts: prom
+  become: yes
+  roles:
+  - ntpd
+  - docker
+  - elk_repa
+  - box_prometheus
+  - box_grafana
+  - box_nodexp
+  - rebooted
+  - filebeat
+  tags:
+  - prom
 
- - name: install haproxy
-   hosts: haproxy2
-   become: yes
-   roles:
-   - elk_repa
-   - ntpd
-   - keepalived
-   - haprox
-   - tls_ssl
-   - filebeat
-   - docker
-   - box_nodexp
-   - rebooted
-   tags:
+- name: insall elk 
+  hosts: elk
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - elasticsearch
+  - logstash
+  - kibana
+  - filebeat
+  - rebooted
+  tags:
+  - elk
+
+
+- name: install haproxy
+  hosts: haproxy1
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - keepalived
+  - haprox
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - filebeat
+  - rebooted  
+  tags:
+  - haproxy1
+
+- name: install haproxy
+  hosts: haproxy2
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - keepalived
+  - haprox
+  - tls_ssl
+  - filebeat
+  - docker
+  - box_nodexp
+  - filebeat
+  - rebooted 
+  tags:
    - haproxy2
 
- - name: install Wordpress node1
-   hosts: node1
-   become: yes
-   roles:
-   - elk_repa
-   - ntpd
-   - wordpress
-   - tls_ssl
-   - filebeat
-   - docker
-   - box_nodexp
-   - rebooted
-   - galera_db 
-   tags:  
-   - node1
+- name: install Wordpress node1
+  hosts: node1
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - wordpress
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - filebeat
+  - rebooted
+  - galera_db 
+  tags:  
+  - node1
  
- - name: install Wordpress node2
-   hosts: node2
-   become: yes
-   roles:
-   - elk_repa
-   - ntpd
-   - wordpress
-   - tls_ssl
-   - filebeat
-   - docker
-   - box_nodexp
-   - rebooted
-   - galera_db 
-   tags:  
-   - node2
+- name: install Wordpress node2
+  hosts: node2
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - wordpress
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - filebeat
+  - rebooted
+  - galera_db 
+  tags:  
+  - node2
  
- - name: install Wordpress node3
-   hosts: node3
-   become: yes
-   roles:
-   - elk_repa
-   - ntpd
-   - wordpress
-   - tls_ssl
-   - filebeat
-   - docker
-   - box_nodexp
-   - rebooted
-   - galera_db 
-   tags:  
-   - node3
+- name: install Wordpress node3
+  hosts: node3
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - wordpress
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - filebeat
+  - rebooted
+  - galera_db 
+  tags:  
+  - node3
  
- - name: Reboot 2 front
-   hosts: ha
-   become: yes
-   roles:
-   - rebooted
+- name: Reboot 2 front
+  hosts: ha
+  become: yes
+  roles:
+  - rebooted
 
      # - name: Check status db
      #hosts: node1
@@ -92,36 +126,5 @@
      #- checkdb
      #tags:
      #- check
- - name: insall elk 
-   hosts: elk
-   become: yes
-   roles:
-   - elk_repa
-   - tls_ssl
-   - elasticsearch
-   - kibana
-   - logstash
-   - filebeat
-   - docker
-   - box_nodexp
-   - rebooted
-   tags:
-   - elk
  
- - name: insall monitoring
-   hosts: prom
-   become: yes
-   roles:
-   - docker
-   - elk_repa
-   - ntpd
-   - box_prometheus
-   - box_grafana
-   - docker
-   - box_nodexp
-   - filebeat
-   - rebooted
-   tags:
-   - prom
-
 ...
