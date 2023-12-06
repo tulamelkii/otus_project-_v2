@@ -10,8 +10,13 @@
  - name: ntp
    template: 
      src: ntp.j2
-     dest: /etc/ntp.conf
- 
+     dest: /etc/ntpsec/ntp.conf
+
+ - name: restart
+   timezone:
+    name: Europe/Moscow
+
+
  - name: restart
    service:
      name: ntpd 
