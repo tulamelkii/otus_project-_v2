@@ -10,5 +10,12 @@
  - name: ntp
    template: 
      src: ntp.j2
-     dest: ntp.conf
+     dest: /etc/ntp.conf
+ 
+ - name: restart
+   service:
+     name: ntpd 
+     state: restarted
+     enabled: true
+
 

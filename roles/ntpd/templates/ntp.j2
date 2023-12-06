@@ -20,10 +20,10 @@ filegen clockstats file clockstats type day enable
 # pool.ntp.org maps to about 1000 low-stratum NTP servers.  Your server will
 # pick a different set every time it starts up.  Please consider joining the
 # pool: <http://www.pool.ntp.org/join.html>
-{{ server_0 }}
-{{ server_1 }}
-{{ server_2 }}
-{{ server_3 }}
+server {{ server_0 }} iburst
+server {{ server_1 }} iburst
+server {{ server_2 }} iburst
+server {{ server_3 }} iburst
 
 
 # Access control configuration; see /usr/share/doc/ntp-doc/html/accopt.html for
