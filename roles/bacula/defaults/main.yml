@@ -1,0 +1,6 @@
+---
+# defaults file for bacula
+pass: 1qaz@WSX
+stor: bacula
+pool: baculapool
+fset: Wordpress

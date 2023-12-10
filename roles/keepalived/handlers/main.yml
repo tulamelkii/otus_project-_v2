@@ -1,0 +1,7 @@
+---
+# handlers file for keepalived
+- name: start+enabled
+  ansible.builtin.service:
+    name: keepalived
+    state: started
+    enabled: true

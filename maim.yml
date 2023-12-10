@@ -1,0 +1,159 @@
+---
+- name: insall monitoring
+  hosts: prom
+  become: yes
+  roles:
+  - ntpd
+  - docker
+  - elk_repa
+  - bacula_client
+  - box_prometheus
+  - box_grafana
+  - box_nodexp
+  - cadvisor
+  - rebooted
+  - filebeat
+  tags:
+  - prom
+
+- name: insall elk 
+  hosts: elk
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - bacula_client
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - cadvisor
+  - elasticsearch
+  - logstash
+  - kibana
+  - filebeat
+  - rebooted
+  tags:
+  - elk
+
+
+- name: install haproxy
+  hosts: haproxy1
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - bacula_client
+  - keepalived
+  - haprox
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - cadvisor
+  - filebeat
+  - rebooted  
+  tags:
+  - haproxy1
+
+- name: install haproxy
+  hosts: haproxy2
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - bacula_client
+  - keepalived
+  - haprox
+  - tls_ssl
+  - filebeat
+  - docker
+  - box_nodexp
+  - cadvisor
+  - filebeat
+  - rebooted 
+  tags:
+   - haproxy2
+
+- name: install Wordpress node1
+  hosts: node1
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - bacula_client
+  - wordpress
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - cadvisor
+  - filebeat
+  - rebooted
+  - galera_db 
+  tags:  
+  - node1
+ 
+- name: install Wordpress node2
+  hosts: node2
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - bacula_client
+  - wordpress
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - cadvisor
+  - filebeat
+  - rebooted
+  - galera_db 
+  tags:  
+  - node2
+ 
+- name: install Wordpress node3
+  hosts: node3
+  become: yes
+  roles:
+  - elk_repa
+  - ntpd
+  - bacula_client
+  - wordpress
+  - tls_ssl
+  - docker
+  - box_nodexp
+  - cadvisor
+  - filebeat
+  - rebooted
+  - galera_db 
+  tags:  
+  - node3
+ 
+- name: Reboot 2 front
+  hosts: ha
+  become: yes
+  roles:
+  - rebooted
+
+     # - name: Check status db
+     #hosts: node1
+     #become: yes
+     # roles:
+     #- checkdb
+     #tags:
+     #- check
+
+- name:
+  hosts: bacula
+  become: yes
+  roles:
+  - docker
+  - bacula
+  - bacula_client
+  - elk_repa
+  - bacula
+  - filebeat
+  - box_nodexp
+  - cadvisor
+  - rebooted
+  tags:
+  - bacula
+...

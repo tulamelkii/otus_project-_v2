@@ -1,0 +1,7 @@
+---
+# defaults file for ntpd
+server_0: "0.ru.pool.ntp.org"
+server_1: "1.ru.pool.ntp.org"
+server_2: "2.ru.pool.ntp.org"
+server_3: "3.ru.pool.ntp.org"
+host_ip: "127.0.0.1"

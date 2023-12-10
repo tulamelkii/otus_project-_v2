@@ -12,4 +12,4 @@
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
-    published_ports: "8080:8080"
+    published_ports: "9110:8080"
