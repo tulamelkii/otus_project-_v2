@@ -49,12 +49,25 @@
 
 - name: create folder for backup
   file:
-    path: /var/bacula
+    path: /var/bacula/node1
     state: directory
-    owner: root
+    owner: bacula
     group: bacula
-    mode: 0755
 
+- name: create folder for backup
+  file:
+    path: /var/bacula/node2
+    state: directory
+    owner: bacula
+    group: bacula
+
+- name: create folder for backup
+  file:
+    path: /var/bacula/node3
+    state: directory
+    owner: bacula
+    group: bacula
+    
 - name: template bacula-dir
   template:
     src: "bacula-dir.j2"
