@@ -15,13 +15,13 @@
 #
 
 Storage {                             # definition of myself
-  Name = {{ stor }}
+  Name = bacula-sd
   SDPort = 9103                  # Director's port
   WorkingDirectory = "/var/lib/bacula"
   Pid Directory = "/run/bacula"
   Plugin Directory = "/usr/lib/bacula"
   Maximum Concurrent Jobs = 20
-  SDAddress = {{ ansible_enp0s8.ipv4.address }}
+#  SDAddress = 192.168.2.10
 }
 
 # List Directors who are permitted to contact Storage daemon
@@ -45,15 +45,39 @@ Director {
 # Note, for a list of additional Device templates please
 #  see the directory <bacula-source>/examples/devices
 Device {
-  Name = {{ stor }}
+  Name = bacula_dev
   Media Type = File
-  Archive Device = /var/bacula
+  Archive Device = /var/bacula/node1
   LabelMedia = yes;                   # lets Bacula label unlabeled media
   Random Access = Yes;
   AutomaticMount = yes;               # when device opened, read it
   RemovableMedia = no;
   AlwaysOpen = no;
-  Maximum Concurrent Jobs = 5
+  Maximum Concurrent Jobs = 3
+}
+
+Device {
+  Name = bacula_dev2
+  Media Type = File
+  Archive Device =  /var/bacula/node2
+  LabelMedia = yes;                   # lets Bacula label unlabeled media
+  Random Access = Yes;
+  AutomaticMount = yes;               # when device opened, read it
+  RemovableMedia = no;
+  AlwaysOpen = no;
+  Maximum Concurrent Jobs = 3
+}
+
+Device {
+  Name = bacula_dev3
+  Media Type = File
+  Archive Device =  /var/bacula/node3
+  LabelMedia = yes;                   # lets Bacula label unlabeled media
+  Random Access = Yes;
+  AutomaticMount = yes;               # when device opened, read it
+  RemovableMedia = no;
+  AlwaysOpen = no;
+  Maximum Concurrent Jobs = 3
 }
 
 
@@ -61,4 +85,5 @@ Messages {
   Name = Standard
   director = bacula-dir = all
 }
+
 

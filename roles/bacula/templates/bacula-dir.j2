@@ -23,63 +23,41 @@ Director {                            # define myself
 }
 
 JobDefs {
-  Name = "DefaultJob"
-  Type = Backup
-  Level = Full
-  Client = node1-fd  #####################?
-  FileSet = {{ fset }}
-  Schedule = "WeeklyCycle"
-  Storage = {{ stor }}
-  Messages = Standard
-  Pool = {{ pool }}
-  SpoolAttributes = yes
-  Priority = 10
-  Write Bootstrap = "/var/lib/bacula/%c.bsr"
+ Name = "DefaultJob"
+ Type = Backup
+ Level = Full
+ FileSet = Wordpress
+ Messages = Standard
+ SpoolAttributes = yes
+ Priority = 10
+ Schedule = "WeeklySchedule"
+ Write Bootstrap = "/var/lib/bacula/%c.bsr"
 }
 
-####################### Job node1 ###################
-Job {
-  Name = "node1"
-  Client = node1-fd
-  JobDefs = "DefaultJob"
-}
-######################## Job node2 ####################
-Job {
-  Name = "node2"
-  Client = node2-fd
-  JobDefs = "DefaultJob"
-}
-#########################Job node3 ###################
-Job {
-  Name = "node3"
-  Client = node3-fd
-  JobDefs = "DefaultJob"
-}
-###################  Job Restore ####################
-Job {
-  Name = "RestoreFiles"
-  Type = Restore
-  Client = bacula-fd
-  Storage = {{ stor }}
+#Job {
+#  Name = "RestoreFiles"
+#  Type = Restore
+#  Client = bacula-fd
+#  Storage = bacula
 # The FileSet and Pool directives are not used by Restore Jobs
 # but must not be removed
-  FileSet = {{ fset }}
-  Pool = {{ pool }}
-  Messages = Standard
-  Where = /tmp/bacula-restores
+#  FileSet = Wordpress
+#  Pool = baculapool
+#  Messages = Standard
+#  Where = /tmp/bacula-restores
 
-}
-#######################################################
+#}
+################### fileset ###################################
 
 # List of files to be backed up
 FileSet {
-  Name = {{ fset }}
+  Name = Wordpress
   Include {
     Options {
-      signature = MD5
+#      signature = MD5
     }
     File = /var/www
-    File = /var/lib/mysql
+    File = /var/lib/mysql/
     File = /etc/mysql/
       }
 
@@ -91,20 +69,44 @@ FileSet {
     File = /.fsck
   }
 }
-
+####################### shedul ################
 Schedule {
-  Name = "WeeklyCycle"
-  Run = Level=Full sun at 23:40
+  Name = "WeeklySchedule"
+  Run = Level=Full  mon at 22:23
+
 }
 
+####################### Job ###################
+Job {
+  Name = "node1"
+  Pool = node1-fd
+  Storage = bacula_stor
+  Client = node1-fd 
+  JobDefs = "DefaultJob"
+}
 
-# Client (File Services) to backup
+Job {
+  Name = "node2"
+  Pool = node2-fd
+  Storage = bacula_stor2
+  Client = node2-fd
+  JobDefs = "DefaultJob"
+}
+
+Job {
+  Name = "node3"
+  Pool = node3-fd
+  Storage = bacula_stor3
+  Client = node3-fd
+  JobDefs = "DefaultJob"
+}
+################################ client #####################################
 Client {
   Name = node1-fd
   Address = 192.168.2.5
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}          # password for FileDaemon
+  Password = {{ pass }}        # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
@@ -115,7 +117,7 @@ Client {
   Address = 192.168.2.6
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}          # password for FileDaemon
+  Password = {{ pass }}         # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
@@ -126,54 +128,49 @@ Client {
   Address = 192.168.2.7
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}          # password for FileDaemon
+  Password = {{ pass }}         # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
 }
-
-Client {
-  Name = bacula-fd
-  Address = 192.168.2.5
-  FDPort = 9102
-  Catalog = MyCatalog
-  Password = {{ pass }}          # password for FileDaemon = bdirpass
-  File Retention = 30 days            # 30 days
-  Job Retention = 6 months            # six months
-  AutoPrune = yes                     # Prune expired Jobs/Files
-}
-
+################################### storage #####################################################
 Storage {
-  Name = {{ stor }}
-# Do not use "localhost" here    
-  Address = {{ ansible_enp0s8.ipv4.address }}               # N.B. Use a fully qualified name here
+  Name = bacula_stor
+  Address = 192.168.2.10               # N.B. Use a fully qualified name here
   SDPort = 9103
   Password = {{ pass }}
-  Device = FileStorage
+  Device = bacula_dev
   Media Type = File
 }
 
+Storage {
+  Name = bacula_stor2
+  Address = 192.168.2.10               # N.B. Use a fully qualified name here
+  SDPort = 9103
+  Password = {{ pass }}
+  Device = bacula_dev2
+  Media Type = File
+}
 
+Storage {
+  Name = bacula_stor3
+#  Do not use "localhost" here    
+  Address = 192.168.2.10               # N.B. Use a fully qualified name here
+  SDPort = 9103
+  Password = {{ pass }}
+  Device = bacula_dev3
+  Media Type = File
+}
+############################################# base #################################################
 # Generic catalog service
 Catalog {
   Name = MyCatalog
   dbname = "bacula"; DB Address = "localhost"; dbuser = "bacula"; dbpassword = {{ pass }}
 }
-
+############################################# message ################################################
 Messages {
   Name = Standard
 
-# NOTE! If you send to two email or more email addresses, you will need
-#  to replace the %r in the from field (-f part) with a single valid
-#  email address in both the mailcommand and the operatorcommand.
-#  What this does is, it sets the email address that emails would display
-#  in the FROM field, which is by default the same email as they're being
-#  sent to.  However, if you send email to more than one address, then
-#  you'll have to set the FROM address manually, to a single address. 
-#  for example, a 'no-reply@mydomain.com', is better since that tends to
-#  tell (most) people that its coming from an automated source.
-
-#
   mailcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \<%r\>\" -s \"Bacula: %t %e of %c %l\" %r"
   operatorcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \<%r\>\" -s \"Bacula: Intervention needed for %j\" %r"
   mail = root@localhost = all, !skipped            
@@ -199,21 +196,45 @@ Messages {
   append = "/var/log/bacula/bacula.log" = all, !skipped
 }
 
-
+#####################################pool##########################################
 # Default pool definition
 Pool {
-  Name = {{ pool }}
+  Name =  node1-fd
   Pool Type = Backup
   Recycle = yes                       # Bacula can automatically recycle Volumes
-  AutoPrune = yes                     # Prune expired volumes
-  Volume Retention = 30 days         # one year
-  Maximum Volume Bytes = 20G          # Limit Volume size to something reasonable
-  Maximum Volumes = 7             # Limit number of Volumes in Pool
+  AutoPrune = yes               # Prune expired volumes
+ VolumeRetention = 13d
+  LabelFormat = "node1-"         # one year
+  Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
+  Maximum Volumes = 15           # Limit number of Volumes in Pool
 }
 
+Pool {
+  Name =  node2-fd
+  Pool Type = Backup
+  Recycle = yes                       # Bacula can automatically recycle Volumes
+  AutoPrune = yes               # Prune expired volumes
+  VolumeRetention = 8d
+  LabelFormat = "node2-"          # one year
+  Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
+  Maximum Volumes = 8             # Limit number of Volumes in Pool
+}
+
+Pool {
+  Name =  node3-fd
+  Pool Type = Backup
+  Recycle = yes                       # Bacula can automatically recycle Volumes
+  AutoPrune = yes               # Prune expired volumes
+  VolumeRetention = 24d
+  LabelFormat = "node3-"             # one year
+  Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
+  Maximum Volumes = 10            # Limit number of Volumes in Pool
+}
+##################################################################################
 Console {
   Name = bacula-mon
   Password = {{ pass }}
   CommandACL = status, .status
 }
+
 
