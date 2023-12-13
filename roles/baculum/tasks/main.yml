@@ -1,0 +1,83 @@
+---
+# tasks file for baculum
+#
+
+- name: install baculum
+  apt:
+    name:
+    - gnupg 
+    - gnupg1 
+    - gnupg2
+    - wget
+- name: add repository
+  lineinfile:
+    path: /etc/apt/sources.list
+    line: "{{ item }}"
+  with_items:
+  - deb http://www.bacula.org/downloads/baculum/stable-11/debian bullseye main
+  - deb-src http://www.bacula.org/downloads/baculum/stable-11/debian bullseye main
+
+- name: download
+  apt_key:
+    url: http://www.bacula.org/downloads/baculum/baculum.pub
+    state: present
+    
+- name:
+  apt: 
+    update_cache: yes
+    name:
+    - baculum-common 
+    - baculum-api 
+    - baculum-web 
+    - baculum-api-apache2 
+    - baculum-web-apache2
+
+- name: enable mod_rewrite in apache.
+  shell: "a2enmod rewrite"
+  register: a2enmodrewrite
+  changed_when: "'already enabled' not in a2enmodrewrite.stdout"
+
+- name: enable mod_rewr.
+  shell: "a2ensite baculum-api"
+  register: a2ensite  
+  changed_when: "'already enabled' not in a2ensite.stdout"
+
+- name: enable mod_rew.
+  shell: "a2ensite baculum-web"
+  register: a2ensiteweb  
+  changed_when: "'already enabled' not in a2ensiteweb.stdout"
+  
+- name: change postgres pref
+  template:
+    src: TPgsqlMetaData.j2
+    dest: /usr/share/baculum/htdocs/protected/vendor/pradosoft/prado/framework/Data/Common/Pgsql/TPgsqlMetaData.php
+
+- name: service apache restart
+  service:
+    name: apache2
+    state: restarted
+
+- name: tampl
+  template:
+    src: baculum-api.j2
+    dest: /etc/sudoers.d/baculum-api
+
+- name: add user www-data to sudoers
+  user:
+    name: www-data
+    group: sudo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

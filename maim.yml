@@ -145,15 +145,17 @@
   hosts: bacula
   become: yes
   roles:
-  - docker
-  - bacula
-  - bacula_client
-  - elk_repa
-  - bacula
-  - filebeat
-  - box_nodexp
-  - cadvisor
-  - rebooted
+   - ntpd
+   - docker
+   - bacula
+   - bacula_client
+   - elk_repa
+   - bacula
+   - filebeat
+   - box_nodexp
+   - cadvisor
+   - baculum
+   - rebooted
   tags:
   - bacula
 ...
