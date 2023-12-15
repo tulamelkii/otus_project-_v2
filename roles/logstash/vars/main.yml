@@ -1,8 +1,0 @@
----
-# vars file for logstash
-elst_password: "{{ reset_elst.stdout_lines[1] | regex_replace('^New value: (.*)$', '\\1') }}"
-http_c: "/etc/elasticsearch/certs/http_ca.crt"
-htt: "/etc/elasticsearch/certs/http.p12"
-transpor: "/etc/elasticsearch/certs/transport.p12"
-logst_certs: "/etc/logstash/certs/"
-

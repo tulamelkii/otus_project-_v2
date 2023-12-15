@@ -1,9 +1,0 @@
----
-# tasks file for docker
-
-- name:
-  apt:
-    update_cache: yes
-    name:
-    - docker.io
-    - python3-docker
