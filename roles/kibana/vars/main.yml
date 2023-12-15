@@ -1,0 +1,7 @@
+---
+# vars file for kibana
+http_ca: "/etc/elasticsearch/certs/http_ca.crt"
+http: "/etc/elasticsearch/certs/http.p12"
+transport: "/etc/elasticsearch/certs/transport.p12"
+kib_certs: "/etc/kibana/certs/"
+kibana_system: "{{ reset_cmd.stdout_lines[1] | regex_replace('^New value: (.*)$', '\\1') }}"

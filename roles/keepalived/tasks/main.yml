@@ -1,0 +1,30 @@
+---
+# tasks file for keepalived
+- name: install keepalived
+  apt:
+    name:
+    - keepalived
+
+- name: create keep.conf
+  file:
+    path: /etc/keepalived/keepalived.conf
+    state: touch
+
+- name: config haproxy2
+  template:
+    src: ha2_keep.j2
+    dest: /etc/keepalived/keepalived.conf
+  when: (ansible_hostname == "haproxy2")
+  notify: 
+  - start+enabled
+    
+- name: config haproxy1
+  template:
+    src: ha1_keep.j2
+    dest: /etc/keepalived/keepalived.conf
+  when: (ansible_hostname == "haproxy1")
+  notify: 
+  - start+enabled
+
+
+

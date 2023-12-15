@@ -1,0 +1,174 @@
+---
+# tasks file for ufw
+- name:
+  apt:
+    name:
+    - ufw
+
+- name: Allow everything and enable UFW
+  ufw:
+    state: enabled
+    policy: allow
+- name: Set logging
+  ufw:
+    logging: on
+
+- ufw:
+    rule: allow
+    port: '{{ item }}'
+    proto: tcp
+  loop:
+    - 22
+    - 80
+    - 8080
+    - 443
+    - 123
+    - 68
+    - 9102
+    - 3000
+    - 9100
+    - 9090
+    - 9100
+    - '30000:40000'
+  when: ( ansible_hostname == 'prom' )
+
+- name: Allow only IPv6 traffic
+  ufw:
+    rule: allow
+    proto: ipv6
+    direction: in
+    from_ip: any
+    to_ip: any
+  when: ( ansible_hostname == 'prom' )
+
+- ufw:
+    rule: allow
+    port: '{{ item }}'
+    proto: tcp
+  loop:
+    - 22
+    - 80
+    - 8080
+    - 443
+    - 68
+    - 123
+    - 9102
+    - '30000:40000'
+    - 5601
+    - 9100
+    - 9110 
+    - 9600
+    - 9300
+    - 9200
+    - 5044
+  when: ( ansible_hostname == 'elk' )
+
+
+
+- name: Allow IPv6 traffic
+  ufw:
+    rule: allow
+    proto: ipv6
+    direction: in
+    from_ip: any
+    to_ip: any
+  when: ( ansible_hostname == 'elk' )
+
+- ufw:
+    rule: allow
+    port: '{{ item }}'
+    proto: tcp
+  loop:
+    - 22
+    - 80
+    - 8080
+    - 443
+    - 68
+    - 123
+    - 9110
+    - 9100
+    - '30000:50000'
+    - 9102
+    - 45587
+    - 9102
+  when: ( ansible_hostname == 'haproxy1' ) or
+        ( ansible_hostname == 'haproxy2' )
+
+- name: Allow only IPv6 traffic
+  ufw:
+    rule: allow
+    proto: ipv6
+    direction: in
+    from_ip: any
+    to_ip: any
+  when: ( ansible_hostname == 'haproxy1' ) or
+        ( ansible_hostname == 'haproxy2' )
+
+- ufw:
+    rule: allow
+    port: '{{ item }}'
+    proto: tcp
+  loop:
+    - 22
+    - 80
+    - 8080
+    - 443
+    - 68
+    - 123
+    - 3306
+    - '30000:50000'
+    - 4567
+    - 9110 
+    - 9102
+    - 9100
+  when: ( ansible_hostname == 'node1' ) or
+        ( ansible_hostname == 'node2' ) or
+        ( ansible_hostname == 'node3' ) 
+
+- name: Allow only IPv6 traffic
+  ufw:
+    rule: allow
+    proto: ipv6
+    direction: in
+    from_ip: any
+    to_ip: any
+  when: ( ansible_hostname == 'node1' ) or
+        ( ansible_hostname == 'node2' ) or
+        ( ansible_hostname == 'node3' ) 
+
+- ufw:
+    rule: allow
+    port: '{{ item }}'
+    proto: tcp
+  loop:
+    - 22
+    - 80
+    - 8080
+    - 443
+    - 68
+    - 123
+    - '9000:9200'
+    - '30000:40000'
+    - 5432
+    - 80 
+    - 25
+  when: ( ansible_hostname == 'bacula' )
+
+- name: Allow only IPv6 traffic
+  ufw:
+    rule: allow
+    proto: ipv6
+    direction: in
+    from_ip: any
+    to_ip: any 
+  when: ( ansible_hostname == 'bacula' )
+   
+
+
+
+
+
+
+
+
+

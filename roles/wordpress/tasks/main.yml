@@ -1,0 +1,100 @@
+---
+# tasks file for wordpress
+     - name: apt install
+       apt:
+         name:
+         - wget
+         - unzip
+         - apache2
+         - php 
+         - php-curl 
+         - php-fpm 
+         - php-bcmath 
+         - php-gd 
+         - php-soap 
+         - php-zip 
+         - php-curl 
+         - php-mbstring 
+         - php-mysqlnd 
+         - php-gd 
+         - php-xml 
+         - php-intl 
+         - php-zip
+         - mariadb-server
+         - mariadb-client
+         - python3-pymysql
+         - rsync
+
+     - name: MYSQL - Change root user password
+       mysql_user:
+         name: root
+         password: "1qaz@WSX"
+         login_user: root
+         login_password: '1qaz@WSX'
+         login_unix_socket: /var/run/mysqld/mysqld.sock
+
+     - name: MYSQL - Create a new database
+       mysql_db:
+         name: wordpress_db
+         login_user: root
+         login_password: "1qaz@WSX"
+         login_unix_socket: /var/run/mysqld/mysqld.sock
+         
+     - name: MYSQL - Create a new user
+       mysql_user:
+         name: 'wordpress_user'
+         password: "1qaz@WSX"
+         priv: '*.*:ALL'
+         login_user: root
+         login_password: "1qaz@WSX"
+         login_unix_socket: /var/run/mysqld/mysqld.sock
+          
+     - name: Download Wordpress
+       get_url:
+         url: "https://wordpress.org/latest.tar.gz"
+         dest: "/var/www/html/wordpress.tar.gz"
+         mode: 0644
+
+     - name: extract Wordpress
+       unarchive:
+         src:  "/var/www/html/wordpress.tar.gz"
+         dest: "/var/www/html/"
+         remote_src: yes
+       
+     - name: Create WordPress config file
+       copy:
+         src: /var/www/html/wordpress/wp-config-sample.php
+         dest: /var/www/html/wordpress/wp-config.php
+         owner: www-data
+         group: www-data
+         remote_src: yes
+
+     - name: Delete WordPress 
+       file:
+         path: /var/www/html/wordpress.tar.gz
+         state: absent  
+     
+     - name: template wp-config
+       template:
+         src: wp-config.j2
+         dest: /var/www/html/wordpress/wp-config.php
+     
+     - name: Recursively change ownership
+       file:
+         path:  /var/www/html/wordpress
+         state: directory
+         recurse: yes
+         owner: www-data
+         group: www-data
+     
+     - name: template default site
+       template:
+         src: def_site.j2
+         dest: /etc/apache2/sites-available/000-default.conf
+         owner: root
+         group: root
+     
+     - name: Enable SSL module on Apache
+       ansible.builtin.command:
+         cmd: a2enmod ssl
+

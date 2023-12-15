@@ -1,0 +1,19 @@
+---
+# tasks file for ntpd
+ 
+ - name: install all
+   apt:
+     name: 
+     - ntp
+     state: latest
+
+ - name: restart
+   timezone:
+    name: Europe/Moscow
+
+
+ - name: restart
+   service:
+     name: ntpd 
+     state: restarted
+     enabled: true
