@@ -7,8 +7,8 @@
 
 - name: import elastick key
   apt_key:
-     url: http://elasticrepo.serveradmin.ru/elastic.asc
-     state: present
+    url: http://elasticrepo.serveradmin.ru/elastic.asc
+    state: present
 
 - name: install Elasticsearch
   apt_repository:
