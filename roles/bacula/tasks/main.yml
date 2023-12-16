@@ -55,21 +55,14 @@
 
 - name: create folder for backup
   file:
-    path: /var/bacula/node1
+    path: /var/bacula/node
     state: directory
     owner: bacula
     group: bacula
 
 - name: create folder for backup
   file:
-    path: /var/bacula/node2
-    state: directory
-    owner: bacula
-    group: bacula
-
-- name: create folder for backup
-  file:
-    path: /var/bacula/node3
+    path: /tmp/restore
     state: directory
     owner: bacula
     group: bacula

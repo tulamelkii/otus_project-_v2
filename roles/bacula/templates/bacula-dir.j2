@@ -17,13 +17,14 @@ Director {                            # define myself
   WorkingDirectory = "/var/lib/bacula"
   PidDirectory = "/run/bacula"
   Maximum Concurrent Jobs = 20
-  Password = {{ pass }}         # Console password
+  Password = 1qaz@WSX         # Console password
   Messages = Daemon
   DirAddress = 192.168.2.10
 }
 
 JobDefs {
  Name = "DefaultJob"
+ Storage = bacula_stor
  Type = Backup
  Level = Full
  Messages = Standard
@@ -32,20 +33,6 @@ JobDefs {
  Schedule = "WeeklySchedule"
  Write Bootstrap = "/var/lib/bacula/%c.bsr"
 }
-
-#Job {
-#  Name = "RestoreFiles"
-#  Type = Restore
-#  Client = bacula-fd
-#  Storage = bacula
-# The FileSet and Pool directives are not used by Restore Jobs
-# but must not be removed
-#  FileSet = Wordpress
-#  Pool = baculapool
-#  Messages = Standard
-#  Where = /tmp/bacula-restores
-
-#}
 ################### fileset ###################################
 
 # List of files to be backed up
@@ -140,11 +127,85 @@ Schedule {
 
 }
 
-####################### Job ###################
+####################### Job Restore ###################
+Job {
+  Name = "restore_node1"
+  Type = Restore 
+  Client = node1-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = wordpres
+  Storage = bacula_stor
+}
+Job {
+  Name = "restore_node2"
+  Type = Restore 
+  Client = node2-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = wordpres
+  Storage = bacula_stor
+}
+
+Job {
+  Name = "restore_node3"
+  Type = Restore 
+  Client = node3-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = wordpres
+  Storage = bacula_stor
+}
+
+Job {
+  Name = "restore_haproxy1"
+  Type = Restore 
+  Client = haproxy1-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = nginx
+  Storage = bacula_stor
+}
+Job {
+  Name = "restore_haproxy2"
+  Type = Restore 
+  Client = haproxy2-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = nginx
+  Storage = bacula_stor
+}
+
+Job {
+  Name = "restore_elk"
+  Type = Restore 
+  Client = elk-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = elk
+  Storage = bacula_stor
+}
+
+Job {
+  Name = "restore_prometheus"
+  Type = Restore 
+  Client = prometheus-fd
+  FileSet = Wordpress
+  Where = /tmp/restore
+  Messages = Standard
+  Pool = elk
+  Storage = bacula_stor
+}
+#############################JOB CLIENT############################
 Job {
   Name = "node1"
-  Pool = node1-fd
-  Storage = bacula_stor
+  Pool = wordpres
   Client = node1-fd
   FileSet = Wordpress 
   JobDefs = "DefaultJob"
@@ -152,8 +213,7 @@ Job {
 
 Job {
   Name = "node2"
-  Pool = node2-fd
-  Storage = bacula_stor2
+  Pool = wordpres
   FileSet = Wordpress
   Client = node2-fd
   JobDefs = "DefaultJob"
@@ -161,8 +221,7 @@ Job {
 
 Job {
   Name = "node3"
-  Pool = node3-fd
-  Storage = bacula_stor3
+  Pool = wordpres
   FileSet = Wordpress
   Client = node3-fd
   JobDefs = "DefaultJob"
@@ -170,8 +229,7 @@ Job {
 
 Job {
   Name = "haproxy1"
-  Pool = haproxy1-fd
-  Storage = bacula_stor4
+  Pool = nginx
   FileSet = nginx
   Client = haproxy1-fd
   JobDefs = "DefaultJob"
@@ -179,8 +237,7 @@ Job {
 
 Job {
   Name = "haproxy2"
-  Pool = haproxy2-fd
-  Storage = bacula_stor5
+  Pool = nginx
   FileSet = nginx
   Client = haproxy2-fd
   JobDefs = "DefaultJob"
@@ -188,8 +245,7 @@ Job {
 
 Job {
   Name = "elk"
-  Pool = elk-fd
-  Storage = bacula_stor6
+  Pool = elk
   FileSet = elk 
   Client = elk-fd
   JobDefs = "DefaultJob"
@@ -197,18 +253,13 @@ Job {
 
 Job {
   Name = "prometheus"
-  Pool = prometheus-fd
-  Storage = bacula_stor7
+  Pool = prometheus
   FileSet = prometheus
   Client = prometheus-fd
   JobDefs = "DefaultJob"
 }
 
-
 ################################ client #####################################
-
-
-
 Client {
   Name = haproxy1-fd
   Address = 192.168.2.2
@@ -226,19 +277,18 @@ Client {
   Address = 192.168.2.3
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}        # password for FileDaemon
+  Password = {{ pass }}      # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
 }
-
 
 Client {
   Name = elk-fd
   Address = 192.168.2.8
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}        # password for FileDaemon
+  Password = {{ pass }}      # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
@@ -249,21 +299,18 @@ Client {
   Address = 192.168.2.9
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}        # password for FileDaemon
+  Password = {{ pass }}      # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
 }
 
-
-
-#################################################################################
 Client {
   Name = node1-fd
   Address = 192.168.2.5
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}        # password for FileDaemon
+  Password = {{ pass }}      # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
@@ -274,7 +321,7 @@ Client {
   Address = 192.168.2.6
   FDPort = 9102
   Catalog = MyCatalog
-  Password = {{ pass }}         # password for FileDaemon
+  Password = {{ pass }}       # password for FileDaemon
   File Retention = 20 days            # 60 days
   Job Retention = 2 months            # six months
   AutoPrune = yes                     # Prune expired Jobs/Files
@@ -299,6 +346,7 @@ Storage {
   Device = bacula_dev
   Media Type = File
 }
+
 ############################################# base #################################################
 # Generic catalog service
 Catalog {
@@ -308,7 +356,6 @@ Catalog {
 ############################################# message ################################################
 Messages {
   Name = Standard
-
   mailcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \<%r\>\" -s \"Bacula: %t %e of %c %l\" %r"
   operatorcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \<%r\>\" -s \"Bacula: Intervention needed for %j\" %r"
   mail = root@localhost = all, !skipped            
@@ -322,8 +369,6 @@ Messages {
   append = "/var/log/bacula/bacula.log" = all, !skipped
   catalog = all
 }
-
-
 #
 # Message delivery for daemon messages (no job).
 Messages {
@@ -337,89 +382,54 @@ Messages {
 #####################################pool##########################################
 # Default pool definition
 Pool {
-  Name =  node1-fd
+  Name =  wordpres
   Pool Type = Backup
   Recycle = yes                       # Bacula can automatically recycle Volumes
   AutoPrune = yes               # Prune expired volumes
- VolumeRetention = 13d
-  LabelFormat = "node1-"         # one year
+  VolumeRetention = 13d
+  LabelFormat = "word-"         # one year
   Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
   Maximum Volumes = 15           # Limit number of Volumes in Pool
 }
 
 Pool {
-  Name =  node2-fd
+  Name =  nginx
   Pool Type = Backup
   Recycle = yes                       # Bacula can automatically recycle Volumes
   AutoPrune = yes               # Prune expired volumes
   VolumeRetention = 8d
-  LabelFormat = "node2-"          # one year
+  LabelFormat = "nginx-"          # one year
   Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
   Maximum Volumes = 8             # Limit number of Volumes in Pool
 }
 
 Pool {
-  Name =  node3-fd
+  Name =  prometheus
   Pool Type = Backup
   Recycle = yes                       # Bacula can automatically recycle Volumes
   AutoPrune = yes               # Prune expired volumes
   VolumeRetention = 24d
-  LabelFormat = "node3-"             # one year
+  LabelFormat = "prom-"             # one year
   Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
   Maximum Volumes = 10            # Limit number of Volumes in Pool
 }
-#################################################################################
+
 Pool {
-  Name = haproxy1-fd
+  Name = elk
   Pool Type = Backup
   Recycle = yes                       # Bacula can automatically recycle Volumes
   AutoPrune = yes               # Prune expired volumes
   VolumeRetention = 30d
-  LabelFormat = "haproxy1-"             # one year
-  Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
-  Maximum Volumes = 10            # Limit number of Volumes in Pool
-}
-
-Pool {
-  Name = haproxy2-fd
-  Pool Type = Backup
-  Recycle = yes                       # Bacula can automatically recycle Volumes
-  AutoPrune = yes               # Prune expired volumes
-  VolumeRetention = 24d
-  LabelFormat = "haproxy2-"             # one year
-  Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
-  Maximum Volumes = 10            # Limit number of Volumes in Pool
-}
-
-Pool {
-  Name = elk-fd
-  Pool Type = Backup
-  Recycle = yes                       # Bacula can automatically recycle Volumes
-  AutoPrune = yes               # Prune expired volumes
-  VolumeRetention = 7d
   LabelFormat = "elk-"             # one year
   Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
   Maximum Volumes = 10            # Limit number of Volumes in Pool
 }
-
-Pool {
-  Name = prometheus-fd
-  Pool Type = Backup
-  Recycle = yes                       # Bacula can automatically recycle Volumes
-  AutoPrune = yes               # Prune expired volumes
-  VolumeRetention = 16d
-  LabelFormat = "prometheus-"             # one year
-  Maximum Volume Bytes = 5G          # Limit Volume size to something reasonable
-  Maximum Volumes = 10            # Limit number of Volumes in Pool
-}
-
-
-
 ##################################################################################
 Console {
   Name = bacula-mon
   Password = {{ pass }}
   CommandACL = status, .status
 }
+
 
 

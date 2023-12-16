@@ -47,7 +47,7 @@ Director {
 Device {
   Name = bacula_dev
   Media Type = File
-  Archive Device = /var/bacula/node1
+  Archive Device = /var/bacula/node
   LabelMedia = yes;                   # lets Bacula label unlabeled media
   Random Access = Yes;
   AutomaticMount = yes;               # when device opened, read it
@@ -55,35 +55,11 @@ Device {
   AlwaysOpen = no;
   Maximum Concurrent Jobs = 3
 }
-
-Device {
-  Name = bacula_dev2
-  Media Type = File
-  Archive Device =  /var/bacula/node2
-  LabelMedia = yes;                   # lets Bacula label unlabeled media
-  Random Access = Yes;
-  AutomaticMount = yes;               # when device opened, read it
-  RemovableMedia = no;
-  AlwaysOpen = no;
-  Maximum Concurrent Jobs = 3
-}
-
-Device {
-  Name = bacula_dev3
-  Media Type = File
-  Archive Device =  /var/bacula/node3
-  LabelMedia = yes;                   # lets Bacula label unlabeled media
-  Random Access = Yes;
-  AutomaticMount = yes;               # when device opened, read it
-  RemovableMedia = no;
-  AlwaysOpen = no;
-  Maximum Concurrent Jobs = 3
-}
-
 
 Messages {
   Name = Standard
   director = bacula-dir = all
 }
+
 
 
