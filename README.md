@@ -17,6 +17,8 @@ My wordpress:
 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/2023-12-17_16-51.png)
 
-     
-
+- After i created ELK this is realy big stend. It is Elasticsearch + Logstash + kibana +filebeat(agent)
+- This is stack i created first time, i didnt work for this steack, but i now its wery powerfull tools
+- This is stend i made few rukes and create only 1 grok for filtering nginx and apache2 log
+  
  
