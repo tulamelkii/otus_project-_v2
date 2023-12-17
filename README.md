@@ -58,7 +58,7 @@ This is stend created with:
 - Wordpress
 - Nodexporter
 - CAdvisor
-  O, shor i didn't show CAdevisor and Prometheus
+- O ,shour i didn't show CAdevisor and Prometheus
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)  
   
   
