@@ -13,8 +13,9 @@ Next step i want build interesting stend:
 - This is stend building from VirtualBox 6.1. Virtual  machines from Linux VDebian 6.1.0-13-amd64 x86_64.
 - Next step i created two nginx on the front with float ip internal and external (why i created two float ip? i want go in my stend to one ip.(if nginx down).Next ip balancing in my cluster for galera)
 - I create High-Availability Cluster with 3 nodes for Wordpress.This cluster have 3 multi-master bd (galera cluster).If my nodes die i don't feel it.And my Data will save.
-My wordpress.
+My wordpress:
 
+![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/2023-12-17_16-51.png)
 
      
 
