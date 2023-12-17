@@ -8,38 +8,38 @@
 - My next mistake: I'm working with someone else's image and I have a lot of problems installing other software.
 -I didn't understand whether I could create a cluster or not. Not believing in my skills, I create a small stand with 1 nginx and 2 Wordpress servers.
 
-Next step i want build interesting stend:
-- First: i create my image with Packer and upload to Vagrant (https://app.vagrantup.com/tulamelkii/boxes/VDebian12)
-- This is stend building from VirtualBox 6.1. Virtual  machines from Linux VDebian 6.1.0-13-amd64 x86_64.
-- Next step i created two nginx on the front with float ip internal and external (why i created two float ip? i want go in my stend to one ip.(if nginx down).Next ip balancing in my cluster for galera)
-- I create High-Availability Cluster with 3 nodes for Wordpress.This cluster have 3 multi-master bd (galera cluster).If my nodes die i don't feel it.And my Data will save.
-My wordpress:
+The next step was to build an interesting stand:
+- First: i created my image with Packer and upload to Vagrant (https://app.vagrantup.com/tulamelkii/boxes/VDebian12)
+- This stand is built in VirtualBox 6.1. Virtual machines running Linux VDebian 6.1.0-13-amd64 x86_64.
+- Next step I created two nginx in front with internal and external floating IP address (Why did I create two floating IP addresses? I want to login to my stand by one IP address. (if nginx is not working). Next IP address balancing in my cluster for Galera)
+- I created a 3 node high availability cluster for Wordpress. There are 3 multimasters in this cluster (Galera cluster). If my node dies, I won't feel it. And my data will be saved.
+My WordPress:
 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/2023-12-17_16-51.png)
 
-- After i created ELK this is realy big stend. It is Elasticsearch + Logstash + kibana +filebeat(agent)
-- This is stack i created first time, i didnt work for this steack, but i now its wery powerfull tools
-- This is stend i made few rukes and create only 1 grok for filtering nginx and apache2 log
+- After I created ELK, it is a really big stand. This is Elasticsearch + Logstash + kibana +filebeat(agent)
+-This is a stack that I created for the first time, I have never worked on this stack, but now I know that it is a very powerful tool.
+- This is a stand, I made a few rules and created only 1 grok to filter nginx and apache2 logs.
   
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png) 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png.png)
 
 - Next step i create monitoring
-- i want try create monitoring for Docker. It's realy cool. I made 3 docker container in prometheus servers: it is Kibana,Nodexporter and agent and simmilar install docker in my nodes.
-- i created CAdvisor for monitoring but i can't conecting to Prometheus dashbord. This is only need for healthy live my docker containers.
+- I tried to create monitoring for Docker. It's really cool. I created 3 docker containers on Prometheus servers: Kibana, Nodexporter agent, and also created similar docker agents on different nodes.
+- i created CAdvisor for monitoring but i can't conecting to Prometheus dashbord. This is only necessary for the healthy life of my docker containers.
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prom3.png)
 
-- And finish tools it are backup. realy i allots of time think about my backup. When i made my home work for backup i create for borg
-- But this time some else new and i say may be bacyla. And its realy dificul system. it's are simmilar paay for tools.
-- i read tree or four day only manual for this system. I now alots of people dont like this stack (its realy difficult, but if you one time undestend how to work this sistem you say it realy grayt system(very elastic and powerful)
-- First time i created only console tools but i want made + baculum( it is web interfaces for bacula)
+- And the finishing tools are backup. I actually spent a lot of time thinking about backup. When I was doing my homework for backup I created in borg
+- But this time I wanted something new. and I said it could be bacula. And it's a really complex system. this is a layer cake from programs
+- I read the manual for this system in three or four days. A lot of people don't like this stack (it's a really complex system. But once you understand how to work with this tool, you will say that it's really a great system (very flexible and powerful)
+- first I created only a console tool, but I wanted to make + baculum (this is a web interface for bacula)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculum.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculm2.png)
 
-- O ,shore i didn't show CAdevisor and Prometheus
+- Oh, of course, I forgot to show CAdevisor and Prometheus
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)
-- this is helty my Docker container. I didn't made monitoring for prometheus but i belive i can! 
+-This is health monitoring for my Docker container. I haven't done monitoring for Prometheus, but I believe I can!
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Cadvisor.png)
 
 This is stend created with:
@@ -64,6 +64,7 @@ This is stend created with:
 - Nodexporter
 - CAdvisor
  
-- really it's my first interesting project for my live and i can do it :)
-- Thanks for all) a nd by for next step........
+- in fact, this is my first interesting project in my entire life and I did it :)
+- Only step by step helpful to you 
+- Thanks for all)see you soon for the  new project........
 - And happy New Year hohoho......
