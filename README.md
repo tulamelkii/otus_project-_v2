@@ -1,1 +1,1 @@
- ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/Dock.png) 
+ ![image]([https://github.com/tulamelkii/otus_project-_v2/blob/main/Dock.png](https://github.com/tulamelkii/otus_project-_v2/blob/main/Desk.png)https://github.com/tulamelkii/otus_project-_v2/blob/main/Desk.png) 
