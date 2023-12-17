@@ -71,6 +71,9 @@
   template:
     src: bacula-dir.j2
     dest: /etc/bacula/bacula-dir.conf
+    owner: bacula
+    group: www-data
+    mode: '775'
   notify:
   - restart-dir
 
