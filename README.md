@@ -57,4 +57,8 @@ This is stend created with:
 - Ntp
 - Wordpress
 - Nodexporter
+- CAdvisor
+  O, shor i didn't show CAdevisor and Prometheus
+  
+  
   
