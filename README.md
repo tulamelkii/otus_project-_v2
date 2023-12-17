@@ -23,3 +23,8 @@ My wordpress:
   
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png) 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png.png)
+
+- Next step i create monitoring
+- i want try create monitoring for Docker. It's realy cool. I made 3 docker container in prometheus servers: it is Kibana,Nodexporter and agent and simmilar install docker in my nodes.
+- i created Advisor for monitoring but i can't conecting to Prometheus dashbord. This is only need for healthy live my docker containers.
+ 
