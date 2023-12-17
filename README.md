@@ -37,6 +37,11 @@ My wordpress:
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculum.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculm2.png)
 
+- O ,shore i didn't show CAdevisor and Prometheus
+![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)
+- this is helty my Docker container. I didn't made monitoring for prometheus but i belive i can! 
+![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Cadvisor.png)
+
 This is stend created with:
 - Packer
 - Ansible
@@ -58,11 +63,7 @@ This is stend created with:
 - Wordpress
 - Nodexporter
 - CAdvisor
-- O ,shore i didn't show CAdevisor and Prometheus
-![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)
-- this is helty my Docker container. I didn't made monitoring for prometheus but i belive i can! 
-![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Cadvisor.png)
-  
+ 
 - really it's my first interesting project for my live and i can do it :)
 - Thanks for all) a nd by for next step........
 - And happy New Year hohoho......
