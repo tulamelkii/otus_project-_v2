@@ -59,6 +59,6 @@ This is stend created with:
 - Nodexporter
 - CAdvisor
   O, shor i didn't show CAdevisor and Prometheus
-![images](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)  
+![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)  
   
   
