@@ -29,3 +29,7 @@ My wordpress:
 - i created Advisor for monitoring but i can't conecting to Prometheus dashbord. This is only need for healthy live my docker containers.
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prom3.png)
+
+- And finish tools it are backup. realy i allots of time think about my backup. When i made my home work for backup i create for borg
+- But this time some else new and i say may be bacyla. And its realy dificul system. it's are simmilar paay for tools.
+- Thri or 
