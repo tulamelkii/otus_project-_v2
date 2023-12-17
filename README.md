@@ -34,4 +34,4 @@ My wordpress:
 - But this time some else new and i say may be bacyla. And its realy dificul system. it's are simmilar paay for tools.
 - i read tree or four day only manual for this system. I now alots of people dont like this stack (its realy difficult, but if you one time undestend how to work this sistem you say it realy grayt system(very elastic and powerful)
 - First time i created only console tools but i want made + baculum( it is web interfaces for bacula)
-    
+![image] (https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculum.png)
