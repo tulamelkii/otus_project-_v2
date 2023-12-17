@@ -22,3 +22,4 @@ My wordpress:
 - This is stend i made few rukes and create only 1 grok for filtering nginx and apache2 log
   
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png) 
+![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png.png)
