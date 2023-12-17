@@ -3,10 +3,10 @@
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/vip2.png) 
 
 
-- My Path an error :
-- I created first Wordpress + Postgres and two day i could not make friends between 2 systems.When i see error logs "Postgress not supported" i undestend: "what i do":)
-- Next my error : i crete someone else's image and i have alot of prublem for install diferent aplet
-- i don't undestend i can create cluster or not. I dont belive my skils and i create litle stend with 1 nginx frontend and 2 backend Wordpress.
+- My errors :
+- First I created Wordpress + Postgres and for two days I could not make friends between the two systems. When I saw the error logs "Postgress is not supported" I realized "what am I doing" :)
+- My next mistake: I'm working with someone else's image and I have a lot of problems installing other software.
+-I didn't understand whether I could create a cluster or not. Not believing in my skills, I create a small stand with 1 nginx and 2 Wordpress servers.
 
 Next step i want build interesting stend:
 - First: i create my image with Packer and upload to Vagrant (https://app.vagrantup.com/tulamelkii/boxes/VDebian12)
