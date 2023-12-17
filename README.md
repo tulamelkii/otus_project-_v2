@@ -32,4 +32,6 @@ My wordpress:
 
 - And finish tools it are backup. realy i allots of time think about my backup. When i made my home work for backup i create for borg
 - But this time some else new and i say may be bacyla. And its realy dificul system. it's are simmilar paay for tools.
-- Thri or 
+- i read tree or four day only manual for this system. I now alots of people dont like this stack (its realy difficult, but if you one time undestend how to work this sistem you say it realy grayt system(very elastic and powerful)
+- First time i created only console tools but i want made + baculum( it is web interfaces for bacula)
+    
