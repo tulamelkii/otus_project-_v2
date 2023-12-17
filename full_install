@@ -1,0 +1,1853 @@
+localadm@DEB:~/github/otus_project-_v2$ vagrant up
+Bringing machine 'haproxy1' up with 'virtualbox' provider...
+Bringing machine 'haproxy2' up with 'virtualbox' provider...
+Bringing machine 'node1' up with 'virtualbox' provider...
+Bringing machine 'node2' up with 'virtualbox' provider...
+Bringing machine 'node3' up with 'virtualbox' provider...
+Bringing machine 'elk' up with 'virtualbox' provider...
+Bringing machine 'prom' up with 'virtualbox' provider...
+Bringing machine 'bacula' up with 'virtualbox' provider...
+==> haproxy1: Importing base box 'tulamelkii/VDebian12'...
+==> haproxy1: Matching MAC address for NAT networking...
+==> haproxy1: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> haproxy1: There was a problem while downloading the metadata for your box
+==> haproxy1: to check for updates. This is not an error, since it is usually due
+==> haproxy1: to temporary network problems. This is just a warning. The problem
+==> haproxy1: encountered was:
+==> haproxy1: 
+==> haproxy1: The requested URL returned error: 404
+==> haproxy1: 
+==> haproxy1: If you want to check for box updates, verify your network connection
+==> haproxy1: is valid and try again.
+==> haproxy1: Setting the name of the VM: otus_project-_v2_haproxy1_1702797302901_66213
+==> haproxy1: Clearing any previously set network interfaces...
+==> haproxy1: Preparing network interfaces based on configuration...
+    haproxy1: Adapter 1: nat
+    haproxy1: Adapter 2: hostonly
+    haproxy1: Adapter 4: hostonly
+==> haproxy1: Forwarding ports...
+    haproxy1: 22 (guest) => 2222 (host) (adapter 1)
+==> haproxy1: Running 'pre-boot' VM customizations...
+==> haproxy1: Booting VM...
+==> haproxy1: Waiting for machine to boot. This may take a few minutes...
+    haproxy1: SSH address: 127.0.0.1:2222
+    haproxy1: SSH username: vagrant
+    haproxy1: SSH auth method: private key
+    haproxy1: 
+    haproxy1: Vagrant insecure key detected. Vagrant will automatically replace
+    haproxy1: this with a newly generated keypair for better security.
+    haproxy1: 
+    haproxy1: Inserting generated public key within guest...
+    haproxy1: Removing insecure key from the guest if it's present...
+    haproxy1: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> haproxy1: Machine booted and ready!
+==> haproxy1: Checking for guest additions in VM...
+    haproxy1: The guest additions on this VM do not match the installed version of
+    haproxy1: VirtualBox! In most cases this is fine, but in rare cases it can
+    haproxy1: prevent things such as shared folders from working properly. If you see
+    haproxy1: shared folder errors, please make sure the guest additions within the
+    haproxy1: virtual machine match the version of VirtualBox you have installed on
+    haproxy1: your host and reload your VM.
+    haproxy1: 
+    haproxy1: Guest Additions Version: 6.0.0 r127566
+    haproxy1: VirtualBox Version: 6.1
+==> haproxy1: Setting hostname...
+==> haproxy1: Configuring and enabling network interfaces...
+==> haproxy1: Mounting shared folders...
+    haproxy1: /vagrant => /home/localadm/github/otus_project-_v2
+==> haproxy2: Importing base box 'tulamelkii/VDebian12'...
+==> haproxy2: Matching MAC address for NAT networking...
+==> haproxy2: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> haproxy2: Setting the name of the VM: otus_project-_v2_haproxy2_1702797367459_1317
+==> haproxy2: Fixed port collision for 22 => 2222. Now on port 2200.
+==> haproxy2: Clearing any previously set network interfaces...
+==> haproxy2: Preparing network interfaces based on configuration...
+    haproxy2: Adapter 1: nat
+    haproxy2: Adapter 2: hostonly
+    haproxy2: Adapter 4: hostonly
+==> haproxy2: Forwarding ports...
+    haproxy2: 22 (guest) => 2200 (host) (adapter 1)
+==> haproxy2: Running 'pre-boot' VM customizations...
+==> haproxy2: Booting VM...
+==> haproxy2: Waiting for machine to boot. This may take a few minutes...
+    haproxy2: SSH address: 127.0.0.1:2200
+    haproxy2: SSH username: vagrant
+    haproxy2: SSH auth method: private key
+    haproxy2: 
+    haproxy2: Vagrant insecure key detected. Vagrant will automatically replace
+    haproxy2: this with a newly generated keypair for better security.
+    haproxy2: 
+    haproxy2: Inserting generated public key within guest...
+    haproxy2: Removing insecure key from the guest if it's present...
+    haproxy2: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> haproxy2: Machine booted and ready!
+==> haproxy2: Checking for guest additions in VM...
+    haproxy2: The guest additions on this VM do not match the installed version of
+    haproxy2: VirtualBox! In most cases this is fine, but in rare cases it can
+    haproxy2: prevent things such as shared folders from working properly. If you see
+    haproxy2: shared folder errors, please make sure the guest additions within the
+    haproxy2: virtual machine match the version of VirtualBox you have installed on
+    haproxy2: your host and reload your VM.
+    haproxy2: 
+    haproxy2: Guest Additions Version: 6.0.0 r127566
+    haproxy2: VirtualBox Version: 6.1
+==> haproxy2: Setting hostname...
+==> haproxy2: Configuring and enabling network interfaces...
+==> haproxy2: Mounting shared folders...
+    haproxy2: /vagrant => /home/localadm/github/otus_project-_v2
+==> node1: Importing base box 'tulamelkii/VDebian12'...
+==> node1: Matching MAC address for NAT networking...
+==> node1: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> node1: Setting the name of the VM: otus_project-_v2_node1_1702797425573_123
+==> node1: Fixed port collision for 22 => 2222. Now on port 2201.
+==> node1: Clearing any previously set network interfaces...
+==> node1: Preparing network interfaces based on configuration...
+    node1: Adapter 1: nat
+    node1: Adapter 2: hostonly
+    node1: Adapter 4: hostonly
+==> node1: Forwarding ports...
+    node1: 22 (guest) => 2201 (host) (adapter 1)
+==> node1: Running 'pre-boot' VM customizations...
+==> node1: Booting VM...
+==> node1: Waiting for machine to boot. This may take a few minutes...
+    node1: SSH address: 127.0.0.1:2201
+    node1: SSH username: vagrant
+    node1: SSH auth method: private key
+    node1: 
+    node1: Vagrant insecure key detected. Vagrant will automatically replace
+    node1: this with a newly generated keypair for better security.
+    node1: 
+    node1: Inserting generated public key within guest...
+    node1: Removing insecure key from the guest if it's present...
+    node1: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> node1: Machine booted and ready!
+==> node1: Checking for guest additions in VM...
+    node1: The guest additions on this VM do not match the installed version of
+    node1: VirtualBox! In most cases this is fine, but in rare cases it can
+    node1: prevent things such as shared folders from working properly. If you see
+    node1: shared folder errors, please make sure the guest additions within the
+    node1: virtual machine match the version of VirtualBox you have installed on
+    node1: your host and reload your VM.
+    node1: 
+    node1: Guest Additions Version: 6.0.0 r127566
+    node1: VirtualBox Version: 6.1
+==> node1: Setting hostname...
+==> node1: Configuring and enabling network interfaces...
+==> node1: Mounting shared folders...
+    node1: /vagrant => /home/localadm/github/otus_project-_v2
+==> node2: Importing base box 'tulamelkii/VDebian12'...
+==> node2: Matching MAC address for NAT networking...
+==> node2: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> node2: Setting the name of the VM: otus_project-_v2_node2_1702797485108_97075
+==> node2: Fixed port collision for 22 => 2222. Now on port 2202.
+==> node2: Clearing any previously set network interfaces...
+==> node2: Preparing network interfaces based on configuration...
+    node2: Adapter 1: nat
+    node2: Adapter 2: hostonly
+    node2: Adapter 4: hostonly
+==> node2: Forwarding ports...
+    node2: 22 (guest) => 2202 (host) (adapter 1)
+==> node2: Running 'pre-boot' VM customizations...
+==> node2: Booting VM...
+==> node2: Waiting for machine to boot. This may take a few minutes...
+    node2: SSH address: 127.0.0.1:2202
+    node2: SSH username: vagrant
+    node2: SSH auth method: private key
+    node2: 
+    node2: Vagrant insecure key detected. Vagrant will automatically replace
+    node2: this with a newly generated keypair for better security.
+    node2: 
+    node2: Inserting generated public key within guest...
+    node2: Removing insecure key from the guest if it's present...
+    node2: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> node2: Machine booted and ready!
+==> node2: Checking for guest additions in VM...
+    node2: The guest additions on this VM do not match the installed version of
+    node2: VirtualBox! In most cases this is fine, but in rare cases it can
+    node2: prevent things such as shared folders from working properly. If you see
+    node2: shared folder errors, please make sure the guest additions within the
+    node2: virtual machine match the version of VirtualBox you have installed on
+    node2: your host and reload your VM.
+    node2: 
+    node2: Guest Additions Version: 6.0.0 r127566
+    node2: VirtualBox Version: 6.1
+==> node2: Setting hostname...
+==> node2: Configuring and enabling network interfaces...
+==> node2: Mounting shared folders...
+    node2: /vagrant => /home/localadm/github/otus_project-_v2
+==> node3: Importing base box 'tulamelkii/VDebian12'...
+==> node3: Matching MAC address for NAT networking...
+==> node3: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> node3: Setting the name of the VM: otus_project-_v2_node3_1702797543558_24111
+==> node3: Fixed port collision for 22 => 2222. Now on port 2203.
+==> node3: Clearing any previously set network interfaces...
+==> node3: Preparing network interfaces based on configuration...
+    node3: Adapter 1: nat
+    node3: Adapter 2: hostonly
+    node3: Adapter 4: hostonly
+==> node3: Forwarding ports...
+    node3: 22 (guest) => 2203 (host) (adapter 1)
+==> node3: Running 'pre-boot' VM customizations...
+==> node3: Booting VM...
+==> node3: Waiting for machine to boot. This may take a few minutes...
+    node3: SSH address: 127.0.0.1:2203
+    node3: SSH username: vagrant
+    node3: SSH auth method: private key
+    node3: 
+    node3: Vagrant insecure key detected. Vagrant will automatically replace
+    node3: this with a newly generated keypair for better security.
+    node3: 
+    node3: Inserting generated public key within guest...
+    node3: Removing insecure key from the guest if it's present...
+    node3: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> node3: Machine booted and ready!
+==> node3: Checking for guest additions in VM...
+    node3: The guest additions on this VM do not match the installed version of
+    node3: VirtualBox! In most cases this is fine, but in rare cases it can
+    node3: prevent things such as shared folders from working properly. If you see
+    node3: shared folder errors, please make sure the guest additions within the
+    node3: virtual machine match the version of VirtualBox you have installed on
+    node3: your host and reload your VM.
+    node3: 
+    node3: Guest Additions Version: 6.0.0 r127566
+    node3: VirtualBox Version: 6.1
+==> node3: Setting hostname...
+==> node3: Configuring and enabling network interfaces...
+==> node3: Mounting shared folders...
+    node3: /vagrant => /home/localadm/github/otus_project-_v2
+==> elk: Importing base box 'tulamelkii/VDebian12'...
+==> elk: Matching MAC address for NAT networking...
+==> elk: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> elk: Setting the name of the VM: otus_project-_v2_elk_1702797602792_16892
+==> elk: Fixed port collision for 22 => 2222. Now on port 2204.
+==> elk: Clearing any previously set network interfaces...
+==> elk: Preparing network interfaces based on configuration...
+    elk: Adapter 1: nat
+    elk: Adapter 2: hostonly
+    elk: Adapter 4: hostonly
+==> elk: Forwarding ports...
+    elk: 22 (guest) => 2204 (host) (adapter 1)
+==> elk: Running 'pre-boot' VM customizations...
+==> elk: Booting VM...
+==> elk: Waiting for machine to boot. This may take a few minutes...
+    elk: SSH address: 127.0.0.1:2204
+    elk: SSH username: vagrant
+    elk: SSH auth method: private key
+    elk: 
+    elk: Vagrant insecure key detected. Vagrant will automatically replace
+    elk: this with a newly generated keypair for better security.
+    elk: 
+    elk: Inserting generated public key within guest...
+    elk: Removing insecure key from the guest if it's present...
+    elk: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> elk: Machine booted and ready!
+==> elk: Checking for guest additions in VM...
+    elk: The guest additions on this VM do not match the installed version of
+    elk: VirtualBox! In most cases this is fine, but in rare cases it can
+    elk: prevent things such as shared folders from working properly. If you see
+    elk: shared folder errors, please make sure the guest additions within the
+    elk: virtual machine match the version of VirtualBox you have installed on
+    elk: your host and reload your VM.
+    elk: 
+    elk: Guest Additions Version: 6.0.0 r127566
+    elk: VirtualBox Version: 6.1
+==> elk: Setting hostname...
+==> elk: Configuring and enabling network interfaces...
+==> elk: Mounting shared folders...
+    elk: /vagrant => /home/localadm/github/otus_project-_v2
+==> prom: Importing base box 'tulamelkii/VDebian12'...
+==> prom: Matching MAC address for NAT networking...
+==> prom: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> prom: Setting the name of the VM: otus_project-_v2_prom_1702797657201_15942
+==> prom: Fixed port collision for 22 => 2222. Now on port 2205.
+==> prom: Clearing any previously set network interfaces...
+==> prom: Preparing network interfaces based on configuration...
+    prom: Adapter 1: nat
+    prom: Adapter 2: hostonly
+    prom: Adapter 4: hostonly
+==> prom: Forwarding ports...
+    prom: 22 (guest) => 2205 (host) (adapter 1)
+==> prom: Running 'pre-boot' VM customizations...
+==> prom: Booting VM...
+==> prom: Waiting for machine to boot. This may take a few minutes...
+    prom: SSH address: 127.0.0.1:2205
+    prom: SSH username: vagrant
+    prom: SSH auth method: private key
+    prom: 
+    prom: Vagrant insecure key detected. Vagrant will automatically replace
+    prom: this with a newly generated keypair for better security.
+    prom: 
+    prom: Inserting generated public key within guest...
+    prom: Removing insecure key from the guest if it's present...
+    prom: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> prom: Machine booted and ready!
+==> prom: Checking for guest additions in VM...
+    prom: The guest additions on this VM do not match the installed version of
+    prom: VirtualBox! In most cases this is fine, but in rare cases it can
+    prom: prevent things such as shared folders from working properly. If you see
+    prom: shared folder errors, please make sure the guest additions within the
+    prom: virtual machine match the version of VirtualBox you have installed on
+    prom: your host and reload your VM.
+    prom: 
+    prom: Guest Additions Version: 6.0.0 r127566
+    prom: VirtualBox Version: 6.1
+==> prom: Setting hostname...
+==> prom: Configuring and enabling network interfaces...
+==> prom: Mounting shared folders...
+    prom: /vagrant => /home/localadm/github/otus_project-_v2
+==> bacula: Importing base box 'tulamelkii/VDebian12'...
+==> bacula: Matching MAC address for NAT networking...
+==> bacula: Checking if box 'tulamelkii/VDebian12' version '12.2.7' is up to date...
+==> bacula: Setting the name of the VM: otus_project-_v2_bacula_1702797714617_35966
+==> bacula: Fixed port collision for 22 => 2222. Now on port 2206.
+==> bacula: Clearing any previously set network interfaces...
+==> bacula: Preparing network interfaces based on configuration...
+    bacula: Adapter 1: nat
+    bacula: Adapter 2: hostonly
+    bacula: Adapter 4: hostonly
+==> bacula: Forwarding ports...
+    bacula: 22 (guest) => 2206 (host) (adapter 1)
+==> bacula: Running 'pre-boot' VM customizations...
+==> bacula: Booting VM...
+==> bacula: Waiting for machine to boot. This may take a few minutes...
+    bacula: SSH address: 127.0.0.1:2206
+    bacula: SSH username: vagrant
+    bacula: SSH auth method: private key
+    bacula: 
+    bacula: Vagrant insecure key detected. Vagrant will automatically replace
+    bacula: this with a newly generated keypair for better security.
+    bacula: 
+    bacula: Inserting generated public key within guest...
+    bacula: Removing insecure key from the guest if it's present...
+    bacula: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> bacula: Machine booted and ready!
+==> bacula: Checking for guest additions in VM...
+    bacula: The guest additions on this VM do not match the installed version of
+    bacula: VirtualBox! In most cases this is fine, but in rare cases it can
+    bacula: prevent things such as shared folders from working properly. If you see
+    bacula: shared folder errors, please make sure the guest additions within the
+    bacula: virtual machine match the version of VirtualBox you have installed on
+    bacula: your host and reload your VM.
+    bacula: 
+    bacula: Guest Additions Version: 6.0.0 r127566
+    bacula: VirtualBox Version: 6.1
+==> bacula: Setting hostname...
+==> bacula: Configuring and enabling network interfaces...
+==> bacula: Mounting shared folders...
+    bacula: /vagrant => /home/localadm/github/otus_project-_v2
+==> bacula: Running provisioner: ansible...
+    bacula: Running ansible-playbook...
+[WARNING]: Found both group and host with same name: elk
+[WARNING]: Found both group and host with same name: node1
+[WARNING]: Found both group and host with same name: node3
+[WARNING]: Found both group and host with same name: prom
+[WARNING]: Found both group and host with same name: bacula
+[WARNING]: Found both group and host with same name: haproxy2
+[WARNING]: Found both group and host with same name: haproxy1
+[WARNING]: Found both group and host with same name: node2
+
+PLAY [insall monitoring] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node3]
+ok: [prom]
+ok: [elk]
+ok: [haproxy2]
+ok: [haproxy1]
+ok: [bacula]
+ok: [node2]
+ok: [node1]
+
+TASK [ufw : apt] ***************************************************************
+changed: [elk]
+changed: [prom]
+changed: [haproxy2]
+changed: [haproxy1]
+changed: [node3]
+changed: [node2]
+changed: [node1]
+changed: [bacula]
+
+TASK [ufw : Allow everything and enable UFW] ***********************************
+changed: [node3]
+changed: [prom]
+changed: [haproxy1]
+changed: [haproxy2]
+changed: [elk]
+changed: [node2]
+changed: [node1]
+changed: [bacula]
+
+TASK [ufw : Set logging] *******************************************************
+ok: [haproxy1]
+ok: [prom]
+ok: [haproxy2]
+ok: [node3]
+ok: [elk]
+ok: [node1]
+ok: [node2]
+ok: [bacula]
+
+TASK [ufw : ufw] ***************************************************************
+skipping: [haproxy1] => (item=22) 
+skipping: [haproxy1] => (item=80) 
+skipping: [haproxy1] => (item=8080) 
+skipping: [haproxy2] => (item=22) 
+skipping: [haproxy1] => (item=443) 
+skipping: [haproxy2] => (item=80) 
+skipping: [haproxy1] => (item=123) 
+skipping: [haproxy2] => (item=8080) 
+skipping: [elk] => (item=22) 
+skipping: [haproxy1] => (item=68) 
+skipping: [haproxy2] => (item=443) 
+skipping: [elk] => (item=80) 
+skipping: [haproxy1] => (item=9102) 
+skipping: [elk] => (item=8080) 
+skipping: [node3] => (item=22) 
+skipping: [haproxy2] => (item=123) 
+skipping: [elk] => (item=443) 
+skipping: [haproxy1] => (item=3000) 
+skipping: [node3] => (item=80) 
+skipping: [haproxy2] => (item=68) 
+skipping: [elk] => (item=123) 
+skipping: [haproxy1] => (item=9100) 
+skipping: [haproxy2] => (item=9102) 
+skipping: [node3] => (item=8080) 
+skipping: [elk] => (item=68) 
+skipping: [node3] => (item=443) 
+skipping: [haproxy1] => (item=9090) 
+skipping: [haproxy2] => (item=3000) 
+skipping: [haproxy1] => (item=9100) 
+skipping: [elk] => (item=9102) 
+skipping: [haproxy1] => (item=30000:40000) 
+skipping: [haproxy2] => (item=9100) 
+skipping: [node3] => (item=123) 
+skipping: [elk] => (item=3000) 
+skipping: [haproxy2] => (item=9090) 
+skipping: [node3] => (item=68) 
+skipping: [elk] => (item=9100) 
+skipping: [haproxy2] => (item=9100) 
+skipping: [node3] => (item=9102) 
+skipping: [elk] => (item=9090) 
+skipping: [haproxy2] => (item=30000:40000) 
+skipping: [node3] => (item=3000) 
+skipping: [elk] => (item=9100) 
+skipping: [node3] => (item=9100) 
+skipping: [elk] => (item=30000:40000) 
+skipping: [node3] => (item=9090) 
+skipping: [node3] => (item=9100) 
+skipping: [node3] => (item=30000:40000) 
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [node2] => (item=22) 
+skipping: [node2] => (item=80) 
+skipping: [elk]
+skipping: [node2] => (item=8080) 
+skipping: [node3]
+skipping: [node1] => (item=22) 
+skipping: [node2] => (item=443) 
+skipping: [node1] => (item=80) 
+skipping: [node1] => (item=8080) 
+skipping: [node2] => (item=123) 
+skipping: [bacula] => (item=22) 
+skipping: [node1] => (item=443) 
+skipping: [node2] => (item=68) 
+skipping: [bacula] => (item=80) 
+skipping: [node1] => (item=123) 
+skipping: [node2] => (item=9102) 
+skipping: [bacula] => (item=8080) 
+skipping: [node1] => (item=68) 
+skipping: [bacula] => (item=443) 
+skipping: [node2] => (item=3000) 
+skipping: [node1] => (item=9102) 
+skipping: [bacula] => (item=123) 
+skipping: [node1] => (item=3000) 
+skipping: [node2] => (item=9100) 
+skipping: [bacula] => (item=68) 
+skipping: [node1] => (item=9100) 
+skipping: [node2] => (item=9090) 
+skipping: [bacula] => (item=9102) 
+skipping: [node1] => (item=9090) 
+skipping: [node2] => (item=9100) 
+skipping: [node1] => (item=9100) 
+skipping: [bacula] => (item=3000) 
+skipping: [node2] => (item=30000:40000) 
+skipping: [node1] => (item=30000:40000) 
+skipping: [bacula] => (item=9100) 
+skipping: [bacula] => (item=9090) 
+skipping: [bacula] => (item=9100) 
+skipping: [bacula] => (item=30000:40000) 
+skipping: [node2]
+skipping: [node1]
+skipping: [bacula]
+changed: [prom] => (item=22)
+changed: [prom] => (item=80)
+changed: [prom] => (item=8080)
+changed: [prom] => (item=443)
+changed: [prom] => (item=123)
+changed: [prom] => (item=68)
+changed: [prom] => (item=9102)
+changed: [prom] => (item=3000)
+changed: [prom] => (item=9100)
+changed: [prom] => (item=9090)
+ok: [prom] => (item=9100)
+changed: [prom] => (item=30000:40000)
+
+TASK [ufw : Allow only IPv6 traffic] *******************************************
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [elk]
+skipping: [node3]
+skipping: [node2]
+skipping: [node1]
+skipping: [bacula]
+changed: [prom]
+
+TASK [ufw : ufw] ***************************************************************
+skipping: [haproxy1] => (item=22) 
+skipping: [haproxy1] => (item=80) 
+skipping: [haproxy1] => (item=8080) 
+skipping: [haproxy2] => (item=22) 
+skipping: [haproxy1] => (item=443) 
+skipping: [haproxy2] => (item=80) 
+skipping: [haproxy1] => (item=68) 
+skipping: [haproxy2] => (item=8080) 
+skipping: [prom] => (item=22) 
+skipping: [haproxy1] => (item=123) 
+skipping: [haproxy2] => (item=443) 
+skipping: [prom] => (item=80) 
+skipping: [haproxy1] => (item=9102) 
+skipping: [prom] => (item=8080) 
+skipping: [haproxy2] => (item=68) 
+skipping: [prom] => (item=443) 
+skipping: [haproxy1] => (item=30000:40000) 
+skipping: [prom] => (item=68) 
+skipping: [haproxy2] => (item=123) 
+skipping: [haproxy1] => (item=5601) 
+skipping: [haproxy2] => (item=9102) 
+skipping: [prom] => (item=123) 
+skipping: [haproxy2] => (item=30000:40000) 
+skipping: [haproxy1] => (item=9100) 
+skipping: [prom] => (item=9102) 
+skipping: [haproxy2] => (item=5601) 
+skipping: [haproxy1] => (item=9110) 
+skipping: [haproxy2] => (item=9100) 
+skipping: [prom] => (item=30000:40000) 
+skipping: [haproxy1] => (item=9600) 
+skipping: [node3] => (item=22) 
+skipping: [haproxy2] => (item=9110) 
+skipping: [prom] => (item=5601) 
+skipping: [haproxy2] => (item=9600) 
+skipping: [haproxy1] => (item=9300) 
+skipping: [prom] => (item=9100) 
+skipping: [node3] => (item=80) 
+skipping: [haproxy2] => (item=9300) 
+skipping: [node3] => (item=8080) 
+skipping: [haproxy1] => (item=9200) 
+skipping: [prom] => (item=9110) 
+skipping: [haproxy2] => (item=9200) 
+skipping: [node3] => (item=443) 
+skipping: [haproxy1] => (item=5044) 
+skipping: [prom] => (item=9600) 
+skipping: [haproxy2] => (item=5044) 
+skipping: [prom] => (item=9300) 
+skipping: [node3] => (item=68) 
+skipping: [prom] => (item=9200) 
+skipping: [node3] => (item=123) 
+skipping: [node3] => (item=9102) 
+skipping: [prom] => (item=5044) 
+skipping: [node3] => (item=30000:40000) 
+skipping: [node3] => (item=5601) 
+skipping: [node3] => (item=9100) 
+skipping: [node3] => (item=9110) 
+skipping: [node3] => (item=9600) 
+skipping: [node3] => (item=9300) 
+skipping: [node3] => (item=9200) 
+skipping: [node3] => (item=5044) 
+skipping: [node2] => (item=22) 
+skipping: [node2] => (item=80) 
+skipping: [node2] => (item=8080) 
+skipping: [node2] => (item=443) 
+skipping: [node2] => (item=68) 
+skipping: [node2] => (item=123) 
+skipping: [node2] => (item=9102) 
+skipping: [node2] => (item=30000:40000) 
+skipping: [node2] => (item=5601) 
+skipping: [node2] => (item=9100) 
+skipping: [node2] => (item=9110) 
+skipping: [node2] => (item=9600) 
+skipping: [node2] => (item=9300) 
+skipping: [node2] => (item=9200) 
+skipping: [node2] => (item=5044) 
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [prom]
+skipping: [node3]
+skipping: [node2]
+skipping: [node1] => (item=22) 
+skipping: [node1] => (item=80) 
+skipping: [node1] => (item=8080) 
+skipping: [bacula] => (item=22) 
+skipping: [node1] => (item=443) 
+skipping: [bacula] => (item=80) 
+skipping: [node1] => (item=68) 
+skipping: [bacula] => (item=8080) 
+skipping: [node1] => (item=123) 
+skipping: [bacula] => (item=443) 
+skipping: [node1] => (item=9102) 
+skipping: [bacula] => (item=68) 
+skipping: [node1] => (item=30000:40000) 
+skipping: [bacula] => (item=123) 
+skipping: [node1] => (item=5601) 
+skipping: [bacula] => (item=9102) 
+skipping: [node1] => (item=9100) 
+skipping: [bacula] => (item=30000:40000) 
+skipping: [node1] => (item=9110) 
+skipping: [bacula] => (item=5601) 
+skipping: [node1] => (item=9600) 
+skipping: [bacula] => (item=9100) 
+skipping: [node1] => (item=9300) 
+skipping: [bacula] => (item=9110) 
+skipping: [node1] => (item=9200) 
+skipping: [bacula] => (item=9600) 
+skipping: [node1] => (item=5044) 
+skipping: [bacula] => (item=9300) 
+skipping: [bacula] => (item=9200) 
+skipping: [bacula] => (item=5044) 
+skipping: [node1]
+skipping: [bacula]
+changed: [elk] => (item=22)
+changed: [elk] => (item=80)
+changed: [elk] => (item=8080)
+changed: [elk] => (item=443)
+changed: [elk] => (item=68)
+changed: [elk] => (item=123)
+changed: [elk] => (item=9102)
+changed: [elk] => (item=30000:40000)
+changed: [elk] => (item=5601)
+changed: [elk] => (item=9100)
+changed: [elk] => (item=9110)
+changed: [elk] => (item=9600)
+changed: [elk] => (item=9300)
+changed: [elk] => (item=9200)
+changed: [elk] => (item=5044)
+
+TASK [ufw : Allow IPv6 traffic] ************************************************
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [prom]
+skipping: [node3]
+skipping: [node2]
+skipping: [node1]
+skipping: [bacula]
+changed: [elk]
+
+TASK [ufw : ufw] ***************************************************************
+skipping: [prom] => (item=22) 
+skipping: [prom] => (item=80) 
+skipping: [prom] => (item=8080) 
+skipping: [elk] => (item=22) 
+skipping: [prom] => (item=443) 
+skipping: [elk] => (item=80) 
+skipping: [elk] => (item=8080) 
+skipping: [prom] => (item=68) 
+skipping: [node3] => (item=22) 
+skipping: [elk] => (item=443) 
+skipping: [elk] => (item=68) 
+skipping: [node3] => (item=80) 
+skipping: [elk] => (item=123) 
+skipping: [prom] => (item=123) 
+skipping: [node3] => (item=8080) 
+skipping: [prom] => (item=9110) 
+skipping: [node3] => (item=443) 
+skipping: [elk] => (item=9110) 
+skipping: [prom] => (item=9100) 
+skipping: [node3] => (item=68) 
+skipping: [prom] => (item=30000:50000) 
+skipping: [node3] => (item=123) 
+skipping: [prom] => (item=9102) 
+skipping: [node3] => (item=9110) 
+skipping: [elk] => (item=9100) 
+skipping: [prom] => (item=45587) 
+skipping: [node3] => (item=9100) 
+skipping: [elk] => (item=30000:50000) 
+skipping: [prom] => (item=9102) 
+skipping: [node3] => (item=30000:50000) 
+skipping: [elk] => (item=9102) 
+skipping: [node3] => (item=9102) 
+skipping: [elk] => (item=45587) 
+skipping: [node3] => (item=45587) 
+skipping: [elk] => (item=9102) 
+skipping: [node3] => (item=9102) 
+skipping: [prom]
+skipping: [elk]
+skipping: [node2] => (item=22) 
+skipping: [node3]
+skipping: [node2] => (item=80) 
+skipping: [node2] => (item=8080) 
+skipping: [node1] => (item=22) 
+skipping: [node1] => (item=80) 
+skipping: [node2] => (item=443) 
+skipping: [node1] => (item=8080) 
+skipping: [node2] => (item=68) 
+skipping: [node2] => (item=123) 
+skipping: [node2] => (item=9110) 
+skipping: [node1] => (item=443) 
+skipping: [node1] => (item=68) 
+skipping: [node1] => (item=123) 
+skipping: [node2] => (item=9100) 
+skipping: [node1] => (item=9110) 
+skipping: [node1] => (item=9100) 
+skipping: [node2] => (item=30000:50000) 
+skipping: [node1] => (item=30000:50000) 
+skipping: [node2] => (item=9102) 
+skipping: [node1] => (item=9102) 
+skipping: [bacula] => (item=22) 
+skipping: [node2] => (item=45587) 
+skipping: [bacula] => (item=80) 
+skipping: [node1] => (item=45587) 
+skipping: [bacula] => (item=8080) 
+skipping: [node2] => (item=9102) 
+skipping: [bacula] => (item=443) 
+skipping: [bacula] => (item=68) 
+skipping: [node1] => (item=9102) 
+skipping: [bacula] => (item=123) 
+skipping: [bacula] => (item=9110) 
+skipping: [bacula] => (item=9100) 
+skipping: [bacula] => (item=30000:50000) 
+skipping: [bacula] => (item=9102) 
+skipping: [bacula] => (item=45587) 
+skipping: [bacula] => (item=9102) 
+skipping: [node2]
+skipping: [node1]
+skipping: [bacula]
+changed: [haproxy1] => (item=22)
+changed: [haproxy2] => (item=22)
+changed: [haproxy1] => (item=80)
+changed: [haproxy2] => (item=80)
+changed: [haproxy1] => (item=8080)
+changed: [haproxy2] => (item=8080)
+changed: [haproxy1] => (item=443)
+changed: [haproxy2] => (item=443)
+changed: [haproxy1] => (item=68)
+changed: [haproxy2] => (item=68)
+changed: [haproxy1] => (item=123)
+changed: [haproxy2] => (item=123)
+changed: [haproxy1] => (item=9110)
+changed: [haproxy2] => (item=9110)
+changed: [haproxy1] => (item=9100)
+changed: [haproxy2] => (item=9100)
+changed: [haproxy1] => (item=30000:50000)
+changed: [haproxy2] => (item=30000:50000)
+changed: [haproxy1] => (item=9102)
+changed: [haproxy2] => (item=9102)
+changed: [haproxy1] => (item=45587)
+changed: [haproxy2] => (item=45587)
+ok: [haproxy1] => (item=9102)
+ok: [haproxy2] => (item=9102)
+
+TASK [ufw : Allow only IPv6 traffic] *******************************************
+skipping: [prom]
+skipping: [elk]
+skipping: [node3]
+skipping: [node2]
+skipping: [node1]
+skipping: [bacula]
+changed: [haproxy1]
+changed: [haproxy2]
+
+TASK [ufw : ufw] ***************************************************************
+skipping: [haproxy1] => (item=22) 
+skipping: [haproxy1] => (item=80) 
+skipping: [haproxy2] => (item=22) 
+skipping: [haproxy1] => (item=8080) 
+skipping: [haproxy2] => (item=80) 
+skipping: [prom] => (item=22) 
+skipping: [haproxy1] => (item=443) 
+skipping: [haproxy2] => (item=8080) 
+skipping: [elk] => (item=22) 
+skipping: [prom] => (item=80) 
+skipping: [elk] => (item=80) 
+skipping: [haproxy1] => (item=68) 
+skipping: [elk] => (item=8080) 
+skipping: [haproxy2] => (item=443) 
+skipping: [prom] => (item=8080) 
+skipping: [elk] => (item=443) 
+skipping: [haproxy1] => (item=123) 
+skipping: [elk] => (item=68) 
+skipping: [prom] => (item=443) 
+skipping: [haproxy2] => (item=68) 
+skipping: [elk] => (item=123) 
+skipping: [haproxy1] => (item=3306) 
+skipping: [elk] => (item=3306) 
+skipping: [prom] => (item=68) 
+skipping: [haproxy2] => (item=123) 
+skipping: [elk] => (item=30000:50000) 
+skipping: [haproxy1] => (item=30000:50000) 
+skipping: [prom] => (item=123) 
+skipping: [haproxy2] => (item=3306) 
+skipping: [elk] => (item=4567) 
+skipping: [haproxy1] => (item=4567) 
+skipping: [prom] => (item=3306) 
+skipping: [elk] => (item=9110) 
+skipping: [haproxy2] => (item=30000:50000) 
+skipping: [haproxy1] => (item=9110) 
+skipping: [elk] => (item=9102) 
+skipping: [prom] => (item=30000:50000) 
+skipping: [haproxy2] => (item=4567) 
+skipping: [haproxy1] => (item=9102) 
+skipping: [elk] => (item=9100) 
+skipping: [prom] => (item=4567) 
+skipping: [haproxy2] => (item=9110) 
+skipping: [haproxy1] => (item=9100) 
+skipping: [prom] => (item=9110) 
+skipping: [haproxy2] => (item=9102) 
+skipping: [haproxy2] => (item=9100) 
+skipping: [prom] => (item=9102) 
+skipping: [prom] => (item=9100) 
+skipping: [elk]
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [prom]
+skipping: [bacula] => (item=22) 
+skipping: [bacula] => (item=80) 
+skipping: [bacula] => (item=8080) 
+skipping: [bacula] => (item=443) 
+skipping: [bacula] => (item=68) 
+skipping: [bacula] => (item=123) 
+skipping: [bacula] => (item=3306) 
+skipping: [bacula] => (item=30000:50000) 
+skipping: [bacula] => (item=4567) 
+skipping: [bacula] => (item=9110) 
+skipping: [bacula] => (item=9102) 
+skipping: [bacula] => (item=9100) 
+skipping: [bacula]
+changed: [node3] => (item=22)
+changed: [node2] => (item=22)
+changed: [node1] => (item=22)
+changed: [node3] => (item=80)
+changed: [node2] => (item=80)
+changed: [node1] => (item=80)
+changed: [node3] => (item=8080)
+changed: [node2] => (item=8080)
+changed: [node1] => (item=8080)
+changed: [node3] => (item=443)
+changed: [node2] => (item=443)
+changed: [node1] => (item=443)
+changed: [node3] => (item=68)
+changed: [node2] => (item=68)
+changed: [node1] => (item=68)
+changed: [node3] => (item=123)
+changed: [node2] => (item=123)
+changed: [node1] => (item=123)
+changed: [node3] => (item=3306)
+changed: [node2] => (item=3306)
+changed: [node1] => (item=3306)
+changed: [node3] => (item=30000:50000)
+changed: [node2] => (item=30000:50000)
+changed: [node1] => (item=30000:50000)
+changed: [node3] => (item=4567)
+changed: [node2] => (item=4567)
+changed: [node1] => (item=4567)
+changed: [node3] => (item=9110)
+changed: [node2] => (item=9110)
+changed: [node1] => (item=9110)
+changed: [node3] => (item=9102)
+changed: [node2] => (item=9102)
+changed: [node1] => (item=9102)
+changed: [node3] => (item=9100)
+changed: [node2] => (item=9100)
+changed: [node1] => (item=9100)
+
+TASK [ufw : Allow only IPv6 traffic] *******************************************
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [prom]
+skipping: [elk]
+skipping: [bacula]
+changed: [node3]
+changed: [node2]
+changed: [node1]
+
+TASK [ufw : ufw] ***************************************************************
+skipping: [haproxy1] => (item=22) 
+skipping: [haproxy1] => (item=80) 
+skipping: [haproxy1] => (item=8080) 
+skipping: [haproxy2] => (item=22) 
+skipping: [haproxy1] => (item=443) 
+skipping: [haproxy2] => (item=80) 
+skipping: [haproxy1] => (item=68) 
+skipping: [haproxy2] => (item=8080) 
+skipping: [haproxy1] => (item=123) 
+skipping: [prom] => (item=22) 
+skipping: [haproxy2] => (item=443) 
+skipping: [prom] => (item=80) 
+skipping: [haproxy1] => (item=9000:9200) 
+skipping: [prom] => (item=8080) 
+skipping: [haproxy2] => (item=68) 
+skipping: [prom] => (item=443) 
+skipping: [prom] => (item=68) 
+skipping: [haproxy1] => (item=30000:40000) 
+skipping: [haproxy2] => (item=123) 
+skipping: [prom] => (item=123) 
+skipping: [haproxy1] => (item=5432) 
+skipping: [haproxy2] => (item=9000:9200) 
+skipping: [prom] => (item=9000:9200) 
+skipping: [haproxy1] => (item=80) 
+skipping: [haproxy2] => (item=30000:40000) 
+skipping: [prom] => (item=30000:40000) 
+skipping: [haproxy1] => (item=25) 
+skipping: [haproxy2] => (item=5432) 
+skipping: [haproxy2] => (item=80) 
+skipping: [haproxy2] => (item=25) 
+skipping: [elk] => (item=22) 
+skipping: [elk] => (item=80) 
+skipping: [prom] => (item=5432) 
+skipping: [prom] => (item=80) 
+skipping: [prom] => (item=25) 
+skipping: [elk] => (item=8080) 
+skipping: [node3] => (item=22) 
+skipping: [elk] => (item=443) 
+skipping: [node3] => (item=80) 
+skipping: [elk] => (item=68) 
+skipping: [node3] => (item=8080) 
+skipping: [elk] => (item=123) 
+skipping: [node3] => (item=443) 
+skipping: [elk] => (item=9000:9200) 
+skipping: [node3] => (item=68) 
+skipping: [elk] => (item=30000:40000) 
+skipping: [node3] => (item=123) 
+skipping: [elk] => (item=5432) 
+skipping: [elk] => (item=80) 
+skipping: [node3] => (item=9000:9200) 
+skipping: [elk] => (item=25) 
+skipping: [node3] => (item=30000:40000) 
+skipping: [node3] => (item=5432) 
+skipping: [node3] => (item=80) 
+skipping: [node3] => (item=25) 
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [node2] => (item=22) 
+skipping: [prom]
+skipping: [node2] => (item=80) 
+skipping: [elk]
+skipping: [node3]
+skipping: [node2] => (item=8080) 
+skipping: [node1] => (item=22) 
+skipping: [node2] => (item=443) 
+skipping: [node1] => (item=80) 
+skipping: [node2] => (item=68) 
+skipping: [node1] => (item=8080) 
+skipping: [node1] => (item=443) 
+skipping: [node2] => (item=123) 
+skipping: [node1] => (item=68) 
+skipping: [node1] => (item=123) 
+skipping: [node2] => (item=9000:9200) 
+skipping: [node1] => (item=9000:9200) 
+skipping: [node2] => (item=30000:40000) 
+skipping: [node1] => (item=30000:40000) 
+skipping: [node2] => (item=5432) 
+skipping: [node1] => (item=5432) 
+skipping: [node2] => (item=80) 
+skipping: [node1] => (item=80) 
+skipping: [node2] => (item=25) 
+skipping: [node1] => (item=25) 
+skipping: [node2]
+skipping: [node1]
+changed: [bacula] => (item=22)
+changed: [bacula] => (item=80)
+changed: [bacula] => (item=8080)
+changed: [bacula] => (item=443)
+changed: [bacula] => (item=68)
+changed: [bacula] => (item=123)
+changed: [bacula] => (item=9000:9200)
+changed: [bacula] => (item=30000:40000)
+changed: [bacula] => (item=5432)
+ok: [bacula] => (item=80)
+changed: [bacula] => (item=25)
+
+TASK [ufw : Allow only IPv6 traffic] *******************************************
+skipping: [haproxy1]
+skipping: [haproxy2]
+skipping: [prom]
+skipping: [elk]
+skipping: [node3]
+skipping: [node2]
+skipping: [node1]
+changed: [bacula]
+
+PLAY [insall monitoring] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [prom]
+
+TASK [ntpd : install all] ******************************************************
+changed: [prom]
+
+TASK [ntpd : restart] **********************************************************
+changed: [prom]
+
+TASK [ntpd : restart] **********************************************************
+changed: [prom]
+
+TASK [docker : apt] ************************************************************
+changed: [prom]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [prom]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [prom]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [prom]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [prom]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [prom]
+
+TASK [box_prometheus : Create Folder /srv/prometheus if not exist] *************
+changed: [prom]
+
+TASK [box_prometheus : Create prometheus configuration file] *******************
+changed: [prom]
+
+TASK [box_prometheus : Create Prometheus container] ****************************
+changed: [prom]
+
+TASK [box_grafana : Create Folder /srv/grafana] ********************************
+changed: [prom]
+
+TASK [box_grafana : Create Grafana container] **********************************
+changed: [prom]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [prom]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [prom]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [prom]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [prom]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [prom]
+
+TASK [filebeat : service] ******************************************************
+changed: [prom]
+
+PLAY [insall elk] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [elk]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [elk]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [elk]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [elk]
+
+TASK [ntpd : install all] ******************************************************
+changed: [elk]
+
+TASK [ntpd : restart] **********************************************************
+changed: [elk]
+
+TASK [ntpd : restart] **********************************************************
+changed: [elk]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [elk]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [elk]
+
+TASK [tls_ssl : Install openssl] ***********************************************
+changed: [elk]
+
+TASK [tls_ssl : Generate private key] ******************************************
+changed: [elk]
+
+TASK [tls_ssl : Generate a CSR] ************************************************
+changed: [elk]
+
+TASK [tls_ssl : Generate self-signed certificate] ******************************
+changed: [elk]
+
+TASK [docker : apt] ************************************************************
+changed: [elk]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [elk]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [elk]
+
+TASK [elasticsearch : apt] *****************************************************
+changed: [elk]
+
+TASK [elasticsearch : preference elast] ****************************************
+changed: [elk] => (item={'regexp': '^#network.host: 192.168.0.1', 'line': 'network.host: 127.0.0.1'})
+changed: [elk] => (item={'regexp': 'http.host: 0.0.0.0', 'line': 'http.host: 127.0.0.1'})
+
+TASK [elasticsearch : service enable] ******************************************
+changed: [elk]
+
+TASK [logstash : install logst] ************************************************
+changed: [elk]
+
+TASK [logstash : rest user elasic] *********************************************
+changed: [elk]
+
+TASK [logstash : template] *****************************************************
+changed: [elk] => (item={'src': 'log_input.j2', 'dest': '/etc/logstash/conf.d/input.conf'})
+changed: [elk] => (item={'src': 'log_output.j2', 'dest': '/etc/logstash/conf.d/output.conf'})
+
+TASK [logstash : copy sign serts logst] ****************************************
+changed: [elk] => (item={'src': '/etc/elasticsearch/certs/http_ca.crt', 'dest': '/etc/logstash/certs/'})
+changed: [elk] => (item={'src': '/etc/elasticsearch/certs/http.p12', 'dest': '/etc/logstash/certs/'})
+changed: [elk] => (item={'src': '/etc/elasticsearch/certs/transport.p12', 'dest': '/etc/logstash/certs/'})
+
+TASK [logstash : template] *****************************************************
+changed: [elk]
+
+TASK [logstash : change mode] **************************************************
+changed: [elk]
+
+TASK [logstash : service enable] ***********************************************
+changed: [elk]
+
+TASK [kibana : install kibana] *************************************************
+changed: [elk]
+
+TASK [kibana : template] *******************************************************
+changed: [elk]
+
+TASK [kibana : rest] ***********************************************************
+changed: [elk]
+
+TASK [kibana : lineinfile] *****************************************************
+changed: [elk]
+
+TASK [kibana : create dir] *****************************************************
+changed: [elk]
+
+TASK [kibana : copy sign serts elastic] ****************************************
+changed: [elk] => (item={'src': '/etc/elasticsearch/certs/http_ca.crt', 'dest': '/etc/kibana/certs/'})
+changed: [elk] => (item={'src': '/etc/elasticsearch/certs/http.p12', 'dest': '/etc/kibana/certs/'})
+changed: [elk] => (item={'src': '/etc/elasticsearch/certs/transport.p12', 'dest': '/etc/kibana/certs/'})
+
+TASK [kibana : copy cert] ******************************************************
+changed: [elk] => (item={'src': '/etc/ssl/private/priv.key', 'dest': '/etc/kibana/certs/'})
+changed: [elk] => (item={'src': '/etc/ssl/certs/sign_key.crt', 'dest': '/etc/kibana/certs/'})
+
+TASK [kibana : change mode] ****************************************************
+changed: [elk]
+
+TASK [kibana : service enable] *************************************************
+changed: [elk]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [elk]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [elk]
+
+TASK [filebeat : service] ******************************************************
+changed: [elk]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [elk]
+
+PLAY [install haproxy] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [haproxy1]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [haproxy1]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [haproxy1]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [haproxy1]
+
+TASK [ntpd : install all] ******************************************************
+changed: [haproxy1]
+
+TASK [ntpd : restart] **********************************************************
+changed: [haproxy1]
+
+TASK [ntpd : restart] **********************************************************
+changed: [haproxy1]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [haproxy1]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [haproxy1]
+
+TASK [keepalived : install keepalived] *****************************************
+changed: [haproxy1]
+
+TASK [keepalived : create keep.conf] *******************************************
+changed: [haproxy1]
+
+TASK [keepalived : config haproxy2] ********************************************
+skipping: [haproxy1]
+
+TASK [keepalived : config haproxy1] ********************************************
+changed: [haproxy1]
+
+TASK [haprox : install iptables-persisten] *************************************
+changed: [haproxy1]
+
+TASK [haprox : start nginx] ****************************************************
+ok: [haproxy1]
+
+TASK [haprox : rules nat] ******************************************************
+changed: [haproxy1]
+
+TASK [haprox : enable forwarding] **********************************************
+changed: [haproxy1]
+
+TASK [haprox : add templ] ******************************************************
+changed: [haproxy1]
+
+TASK [tls_ssl : Install openssl] ***********************************************
+changed: [haproxy1]
+
+TASK [tls_ssl : Generate private key] ******************************************
+changed: [haproxy1]
+
+TASK [tls_ssl : Generate a CSR] ************************************************
+changed: [haproxy1]
+
+TASK [tls_ssl : Generate self-signed certificate] ******************************
+changed: [haproxy1]
+
+TASK [docker : apt] ************************************************************
+changed: [haproxy1]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [haproxy1]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [haproxy1]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [haproxy1]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [haproxy1]
+
+TASK [filebeat : service] ******************************************************
+changed: [haproxy1]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [haproxy1]
+
+RUNNING HANDLER [keepalived : start+enabled] ***********************************
+ok: [haproxy1]
+
+PLAY [install haproxy] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [haproxy2]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [haproxy2]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [haproxy2]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [haproxy2]
+
+TASK [ntpd : install all] ******************************************************
+changed: [haproxy2]
+
+TASK [ntpd : restart] **********************************************************
+changed: [haproxy2]
+
+TASK [ntpd : restart] **********************************************************
+changed: [haproxy2]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [haproxy2]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [haproxy2]
+
+TASK [keepalived : install keepalived] *****************************************
+changed: [haproxy2]
+
+TASK [keepalived : create keep.conf] *******************************************
+changed: [haproxy2]
+
+TASK [keepalived : config haproxy2] ********************************************
+changed: [haproxy2]
+
+TASK [keepalived : config haproxy1] ********************************************
+skipping: [haproxy2]
+
+TASK [haprox : install iptables-persisten] *************************************
+changed: [haproxy2]
+
+TASK [haprox : start nginx] ****************************************************
+ok: [haproxy2]
+
+TASK [haprox : rules nat] ******************************************************
+changed: [haproxy2]
+
+TASK [haprox : enable forwarding] **********************************************
+changed: [haproxy2]
+
+TASK [haprox : add templ] ******************************************************
+changed: [haproxy2]
+
+TASK [tls_ssl : Install openssl] ***********************************************
+changed: [haproxy2]
+
+TASK [tls_ssl : Generate private key] ******************************************
+changed: [haproxy2]
+
+TASK [tls_ssl : Generate a CSR] ************************************************
+changed: [haproxy2]
+
+TASK [tls_ssl : Generate self-signed certificate] ******************************
+changed: [haproxy2]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [haproxy2]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [haproxy2]
+
+TASK [filebeat : service] ******************************************************
+changed: [haproxy2]
+
+TASK [docker : apt] ************************************************************
+changed: [haproxy2]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [haproxy2]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [haproxy2]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [haproxy2]
+
+RUNNING HANDLER [keepalived : start+enabled] ***********************************
+ok: [haproxy2]
+
+PLAY [install Wordpress node1] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [node1]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [node1]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [node1]
+
+TASK [ntpd : install all] ******************************************************
+changed: [node1]
+
+TASK [ntpd : restart] **********************************************************
+changed: [node1]
+
+TASK [ntpd : restart] **********************************************************
+changed: [node1]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [node1]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [node1]
+
+TASK [wordpress : apt install] *************************************************
+changed: [node1]
+
+TASK [wordpress : MYSQL - Change root user password] ***************************
+changed: [node1]
+
+TASK [wordpress : MYSQL - Create a new database] *******************************
+changed: [node1]
+
+TASK [wordpress : MYSQL - Create a new user] ***********************************
+changed: [node1]
+
+TASK [wordpress : Download Wordpress] ******************************************
+changed: [node1]
+
+TASK [wordpress : extract Wordpress] *******************************************
+changed: [node1]
+
+TASK [wordpress : Create WordPress config file] ********************************
+changed: [node1]
+
+TASK [wordpress : Delete WordPress] ********************************************
+changed: [node1]
+
+TASK [wordpress : template wp-config] ******************************************
+changed: [node1]
+
+TASK [wordpress : Recursively change ownership] ********************************
+changed: [node1]
+
+TASK [wordpress : template default site] ***************************************
+changed: [node1]
+
+TASK [wordpress : Enable SSL module on Apache] *********************************
+changed: [node1]
+
+TASK [tls_ssl : Install openssl] ***********************************************
+ok: [node1]
+
+TASK [tls_ssl : Generate private key] ******************************************
+changed: [node1]
+
+TASK [tls_ssl : Generate a CSR] ************************************************
+changed: [node1]
+
+TASK [tls_ssl : Generate self-signed certificate] ******************************
+changed: [node1]
+
+TASK [docker : apt] ************************************************************
+changed: [node1]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [node1]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [node1]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [node1]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [node1]
+
+TASK [filebeat : service] ******************************************************
+changed: [node1]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [node1]
+
+TASK [galera_db : service sql stop] ********************************************
+changed: [node1]
+
+TASK [galera_db : create dir] **************************************************
+changed: [node1]
+
+TASK [galera_db : change mysql pref] *******************************************
+changed: [node1]
+
+TASK [galera_db : add conf galera] *********************************************
+changed: [node1]
+
+TASK [galera_db : intivialisation] *********************************************
+changed: [node1]
+
+TASK [galera_db : service] *****************************************************
+ok: [node1]
+
+PLAY [install Wordpress node2] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [node2]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [node2]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [node2]
+
+TASK [ntpd : install all] ******************************************************
+changed: [node2]
+
+TASK [ntpd : restart] **********************************************************
+changed: [node2]
+
+TASK [ntpd : restart] **********************************************************
+changed: [node2]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [node2]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [node2]
+
+TASK [wordpress : apt install] *************************************************
+changed: [node2]
+
+TASK [wordpress : MYSQL - Change root user password] ***************************
+changed: [node2]
+
+TASK [wordpress : MYSQL - Create a new database] *******************************
+changed: [node2]
+
+TASK [wordpress : MYSQL - Create a new user] ***********************************
+changed: [node2]
+
+TASK [wordpress : Download Wordpress] ******************************************
+changed: [node2]
+
+TASK [wordpress : extract Wordpress] *******************************************
+changed: [node2]
+
+TASK [wordpress : Create WordPress config file] ********************************
+changed: [node2]
+
+TASK [wordpress : Delete WordPress] ********************************************
+changed: [node2]
+
+TASK [wordpress : template wp-config] ******************************************
+changed: [node2]
+
+TASK [wordpress : Recursively change ownership] ********************************
+changed: [node2]
+
+TASK [wordpress : template default site] ***************************************
+changed: [node2]
+
+TASK [wordpress : Enable SSL module on Apache] *********************************
+changed: [node2]
+
+TASK [tls_ssl : Install openssl] ***********************************************
+ok: [node2]
+
+TASK [tls_ssl : Generate private key] ******************************************
+changed: [node2]
+
+TASK [tls_ssl : Generate a CSR] ************************************************
+changed: [node2]
+
+TASK [tls_ssl : Generate self-signed certificate] ******************************
+changed: [node2]
+
+TASK [docker : apt] ************************************************************
+changed: [node2]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [node2]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [node2]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [node2]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [node2]
+
+TASK [filebeat : service] ******************************************************
+changed: [node2]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [node2]
+
+TASK [galera_db : service sql stop] ********************************************
+changed: [node2]
+
+TASK [galera_db : create dir] **************************************************
+changed: [node2]
+
+TASK [galera_db : change mysql pref] *******************************************
+changed: [node2]
+
+TASK [galera_db : add conf galera] *********************************************
+changed: [node2]
+
+TASK [galera_db : intivialisation] *********************************************
+skipping: [node2]
+
+TASK [galera_db : service] *****************************************************
+changed: [node2]
+
+PLAY [install Wordpress node3] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node3]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [node3]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [node3]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [node3]
+
+TASK [ntpd : install all] ******************************************************
+changed: [node3]
+
+TASK [ntpd : restart] **********************************************************
+changed: [node3]
+
+TASK [ntpd : restart] **********************************************************
+changed: [node3]
+
+TASK [bacula_client : install bacula client] ***********************************
+changed: [node3]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [node3]
+
+TASK [wordpress : apt install] *************************************************
+changed: [node3]
+
+TASK [wordpress : MYSQL - Change root user password] ***************************
+changed: [node3]
+
+TASK [wordpress : MYSQL - Create a new database] *******************************
+changed: [node3]
+
+TASK [wordpress : MYSQL - Create a new user] ***********************************
+changed: [node3]
+
+TASK [wordpress : Download Wordpress] ******************************************
+changed: [node3]
+
+TASK [wordpress : extract Wordpress] *******************************************
+changed: [node3]
+
+TASK [wordpress : Create WordPress config file] ********************************
+changed: [node3]
+
+TASK [wordpress : Delete WordPress] ********************************************
+changed: [node3]
+
+TASK [wordpress : template wp-config] ******************************************
+changed: [node3]
+
+TASK [wordpress : Recursively change ownership] ********************************
+changed: [node3]
+
+TASK [wordpress : template default site] ***************************************
+changed: [node3]
+
+TASK [wordpress : Enable SSL module on Apache] *********************************
+changed: [node3]
+
+TASK [tls_ssl : Install openssl] ***********************************************
+ok: [node3]
+
+TASK [tls_ssl : Generate private key] ******************************************
+changed: [node3]
+
+TASK [tls_ssl : Generate a CSR] ************************************************
+changed: [node3]
+
+TASK [tls_ssl : Generate self-signed certificate] ******************************
+changed: [node3]
+
+TASK [docker : apt] ************************************************************
+changed: [node3]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [node3]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [node3]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [node3]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [node3]
+
+TASK [filebeat : service] ******************************************************
+changed: [node3]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [node3]
+
+TASK [galera_db : service sql stop] ********************************************
+changed: [node3]
+
+TASK [galera_db : create dir] **************************************************
+changed: [node3]
+
+TASK [galera_db : change mysql pref] *******************************************
+changed: [node3]
+
+TASK [galera_db : add conf galera] *********************************************
+changed: [node3]
+
+TASK [galera_db : intivialisation] *********************************************
+skipping: [node3]
+
+TASK [galera_db : service] *****************************************************
+changed: [node3]
+
+PLAY [Reboot 2 front] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [haproxy1]
+ok: [haproxy2]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [haproxy2]
+changed: [haproxy1]
+
+PLAY [bacula] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [bacula]
+
+TASK [ntpd : install all] ******************************************************
+changed: [bacula]
+
+TASK [ntpd : restart] **********************************************************
+changed: [bacula]
+
+TASK [ntpd : restart] **********************************************************
+changed: [bacula]
+
+TASK [docker : apt] ************************************************************
+changed: [bacula]
+
+TASK [bacula : install server] *************************************************
+changed: [bacula]
+
+TASK [bacula : templ] **********************************************************
+changed: [bacula]
+
+TASK [bacula : change postgres pref] *******************************************
+changed: [bacula]
+
+TASK [bacula : service start and enabled] **************************************
+changed: [bacula]
+
+TASK [bacula : add user bacula] ************************************************
+changed: [bacula]
+
+TASK [bacula : create basese bacula] *******************************************
+ok: [bacula]
+
+TASK [bacula : grant db bacula] ************************************************
+changed: [bacula]
+
+TASK [bacula : templ hosts] ****************************************************
+changed: [bacula]
+
+TASK [bacula : create folder for backup] ***************************************
+changed: [bacula]
+
+TASK [bacula : create folder for backup] ***************************************
+changed: [bacula]
+
+TASK [bacula : Add the user www-data to bacula] ********************************
+changed: [bacula]
+
+TASK [bacula : template bacula-dir] ********************************************
+changed: [bacula]
+
+TASK [bacula : template bacula-sd] *********************************************
+changed: [bacula]
+
+TASK [bacula : Add bacula console config] **************************************
+changed: [bacula]
+
+TASK [bacula_client : install bacula client] ***********************************
+ok: [bacula]
+
+TASK [bacula_client : template bacula-fd] **************************************
+changed: [bacula]
+
+TASK [elk_repa : Ensure gnupg is installed] ************************************
+changed: [bacula]
+
+TASK [elk_repa : import elastick key] ******************************************
+changed: [bacula]
+
+TASK [elk_repa : install Elasticsearch] ****************************************
+changed: [bacula]
+
+TASK [filebeat : install filebeat] *********************************************
+changed: [bacula]
+
+TASK [filebeat : template filebeat] ********************************************
+changed: [bacula]
+
+TASK [filebeat : service] ******************************************************
+changed: [bacula]
+
+TASK [box_nodexp : Create NodeExporter] ****************************************
+changed: [bacula]
+
+TASK [cadvisor : Create cAdvisor] **********************************************
+changed: [bacula]
+
+TASK [baculum : install baculum] ***********************************************
+changed: [bacula]
+
+TASK [baculum : add repository] ************************************************
+changed: [bacula] => (item=deb http://www.bacula.org/downloads/baculum/stable-11/debian bullseye main)
+changed: [bacula] => (item=deb-src http://www.bacula.org/downloads/baculum/stable-11/debian bullseye main)
+
+TASK [baculum : download] ******************************************************
+changed: [bacula]
+
+TASK [baculum : apt] ***********************************************************
+changed: [bacula]
+
+TASK [baculum : enable mod_rewrite in apache.] *********************************
+changed: [bacula]
+
+TASK [baculum : enable mod_rewr.] **********************************************
+changed: [bacula]
+
+TASK [baculum : enable mod_rew.] ***********************************************
+changed: [bacula]
+
+TASK [baculum : change postgres pref] ******************************************
+changed: [bacula]
+
+TASK [baculum : service apache restart] ****************************************
+changed: [bacula]
+
+TASK [baculum : tampl] *********************************************************
+changed: [bacula]
+
+TASK [baculum : add user www-data to sudoers] **********************************
+changed: [bacula]
+
+TASK [rebooted : Reboot] *******************************************************
+changed: [bacula]
+
+RUNNING HANDLER [bacula : restart-dir] *****************************************
+changed: [bacula]
+
+RUNNING HANDLER [bacula : restart-sd] ******************************************
+changed: [bacula]
+
+PLAY RECAP *********************************************************************
+bacula                     : ok=49   changed=44   unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+elk                        : ok=45   changed=42   unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+haproxy1                   : ok=37   changed=31   unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+haproxy2                   : ok=37   changed=31   unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+node1                      : ok=44   changed=39   unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+node2                      : ok=43   changed=39   unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+node3                      : ok=43   changed=39   unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+prom                       : ok=27   changed=24   unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+
