@@ -50,7 +50,7 @@
 
 **_This is stend created with:_**
 
-- *Packer
+- *Packer*
 - *Ansible*
 - *Vagrant*
 - *Galera cluster (Mariadb)*
@@ -71,7 +71,10 @@
 - *Nodexporter*
 - *CAdvisor*
  
-- **_in fact, this is my first interesting project in my entire life and I did it :)_**
-- **_Only step by step helpful to you _**
-- **_Thanks for all)see you soon for the  new project........)_**
-- **_And happy New Year hohoho......_**
+ **_in fact, this is my first interesting project in my entire life and I did it :)_**
+ 
+ **_Only step by step helpful to you _**
+ 
+ **_Thanks for all)see you soon for the  new project........)_**
+ 
+ **_And happy New Year hohoho......_**
