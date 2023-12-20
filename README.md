@@ -43,8 +43,8 @@ My WordPress:
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Cadvisor.png)
 
 This is stend created with:
-*Packer
-*Ansible
+* Packer
+- Ansible
 - Vagrant
 - Galera cluster (Mariadb)
 - Postgres
