@@ -73,7 +73,7 @@
  
  **_in fact, this is my first interesting project in my entire life and I did it :)_**
  
- **_Only step by step helpful to you _**
+ **_Only step by step helpful to you_**
  
  **_Thanks for all)see you soon for the  new project........)_**
  
