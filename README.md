@@ -14,6 +14,7 @@
 - *step I created two nginx in front with internal and external floating IP address (Why did I create two floating IP addresses? I want to login to my stand by one IP address. (if nginx is not working). NextIP*
  *address balancing in my cluster for Galera)*
 - *I created a 3 node high availability cluster for Wordpress. There are 3 multimasters in this cluster (Galera cluster). If my node dies, I won't feel it. And my data will be saved.*
+
 My WordPress:
 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/2023-12-17_16-51.png)
