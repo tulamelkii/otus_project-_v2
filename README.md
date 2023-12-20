@@ -28,46 +28,49 @@
 
  **_Next step i create monitoring_**
  
-- I tried to create monitoring for Docker. It's really cool. I created 3 docker containers on Prometheus servers: Kibana, Nodexporter agent, and also created similar docker agents on different nodes.
-- i created CAdvisor for monitoring but i can't conecting to Prometheus dashbord. This is only necessary for the healthy life of my docker containers.
+- *I tried to create monitoring for Docker. It's really cool. I created 3 docker containers on Prometheus servers: Kibana, Nodexporter agent, and also created similar docker agents on different nodes.*
+- *i created CAdvisor for monitoring but i can't conecting to Prometheus dashbord. This is only necessary for the healthy life of my docker containers.*
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prom3.png)
 
-- And the finishing tools are backup. I actually spent a lot of time thinking about backup. When I was doing my homework for backup I created in borg
-- But this time I wanted something new. and I said it could be bacula. And it's a really complex system. this is a layer cake from programs
-- I read the manual for this system in three or four days. A lot of people don't like this stack (it's a really complex system. But once you understand how to work with this tool, you will say that it's really a great system (very flexible and powerful)
-- first I created only a console tool, but I wanted to make + baculum (this is a web interface for bacula)
+- *And the finishing tools are backup. I actually spent a lot of time thinking about backup. When I was doing my homework for backup I created in borg*
+- *But this time I wanted something new. and I said it could be bacula. And it's a really complex system. this is a layer cake from programs*
+- *I read the manual for this system in three or four days. A lot of people don't like this stack (it's a really complex system. But once you understand how to work with this tool, you will say that it's really a* *great system (very flexible and powerful)*
+- *first I created only a console tool, but I wanted to make + baculum (this is a web interface for bacula)*
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculum.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/baculm2.png)
 
-- Oh, of course, I forgot to show CAdevisor and Prometheus
+- *Oh, of course, I forgot to show CAdevisor and Prometheus*
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus3.png)
--This is health monitoring for my Docker container. I haven't done monitoring for Prometheus, but I believe I can!
+
+- **_This is health monitoring for my Docker container. I haven't done monitoring for Prometheus, but I believe I can!_**
+  
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Cadvisor.png)
 
-This is stend created with:
-- Packer
-- Ansible
-- Vagrant
-- Galera cluster (Mariadb)
-- Postgres
-- Kibana
-- Grafana
-- Elasticsearc
-- Logstash
-- Filebeat
-- Keepalived ip
-- Nginx
-- Apache
-- Bacula
-- Baculum
-- Docker
-- Ntp
-- Wordpress
-- Nodexporter
-- CAdvisor
+**_This is stend created with:_**
+
+- *Packer
+- *Ansible*
+- *Vagrant*
+- *Galera cluster (Mariadb)*
+- *Postgres*
+- *Kibana*
+- *Grafana*
+- *Elasticsearc*
+- *Logstash*
+- *Filebeat*
+- *Keepalived ip*
+- *Nginx*
+- *Apache*
+- *Bacula*
+- *Baculum*
+- *Docker*
+- *Ntp*
+- *Wordpress*
+- *Nodexporter*
+- *CAdvisor*
  
-- in fact, this is my first interesting project in my entire life and I did it :)
-- Only step by step helpful to you 
-- Thanks for all)see you soon for the  new project........
-- And happy New Year hohoho......
+- **_in fact, this is my first interesting project in my entire life and I did it :)_**
+- **_Only step by step helpful to you _**
+- **_Thanks for all)see you soon for the  new project........)_**
+- **_And happy New Year hohoho......_**
