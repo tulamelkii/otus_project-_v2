@@ -19,14 +19,15 @@
 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/2023-12-17_16-51.png)
 
-- After I created ELK, it is a really big stand. This is Elasticsearch + Logstash + kibana +filebeat(agent)
--This is a stack that I created for the first time, I have never worked on this stack, but now I know that it is a very powerful tool.
-- This is a stand, I made a few rules and created only 1 grok to filter nginx and apache2 logs.
+- *After I created ELK, it is a really big stand. This is Elasticsearch + Logstash + kibana +filebeat(agent)*
+- *This is a stack that I created for the first time, I have never worked on this stack, but now I know that it is a very powerful tool.*
+- *This is a stand, I made a few rules and created only 1 grok to filter nginx and apache2 logs.*
   
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png) 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/kibana.png.png)
 
-- Next step i create monitoring
+ **_Next step i create monitoring_**
+ 
 - I tried to create monitoring for Docker. It's really cool. I created 3 docker containers on Prometheus servers: Kibana, Nodexporter agent, and also created similar docker agents on different nodes.
 - i created CAdvisor for monitoring but i can't conecting to Prometheus dashbord. This is only necessary for the healthy life of my docker containers.
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus.png)
