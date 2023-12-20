@@ -8,11 +8,12 @@
 - *My next mistake: I'm working with someone else's image and I have a lot of problems installing other software.*
 - *I didn't understand whether I could create a cluster or not. Not believing in my skills, I create a small stand with 1 nginx and 2 Wordpress servers.*
 
-The next step was to build an interesting stand:
-- First: i created my image with Packer and upload to Vagrant (https://app.vagrantup.com/tulamelkii/boxes/VDebian12)
-- This stand is built in VirtualBox 6.1. Virtual machines running Linux VDebian 6.1.0-13-amd64 x86_64.
-- Next step I created two nginx in front with internal and external floating IP address (Why did I create two floating IP addresses? I want to login to my stand by one IP address. (if nginx is not working). Next IP address balancing in my cluster for Galera)
-- I created a 3 node high availability cluster for Wordpress. There are 3 multimasters in this cluster (Galera cluster). If my node dies, I won't feel it. And my data will be saved.
+**_The next step was to build an interesting stand:_**
+- *First: i created my image with Packer and upload to Vagrant (https://app.vagrantup.com/tulamelkii/boxes/VDebian12)*
+- *This stand is built in VirtualBox 6.1. Virtual machines running Linux VDebian 6.1.0-13-amd64 x86_64.*
+- *step I created two nginx in front with internal and external floating IP address (Why did I create two floating IP addresses? I want to login to my stand by one IP address. (if nginx is not working). NextIP*
+ *address balancing in my cluster for Galera)*
+- *I created a 3 node high availability cluster for Wordpress. There are 3 multimasters in this cluster (Galera cluster). If my node dies, I won't feel it. And my data will be saved.*
 My WordPress:
 
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/2023-12-17_16-51.png)
