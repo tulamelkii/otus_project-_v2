@@ -1,12 +1,12 @@
-*This is "Building High-Availability Cluster on the platform : Wordpress, Galera Mariadb, Nginx with floating ip(keepalived),ELK,Prometheus,Bacula"*
+*__This is "Building High-Availability Cluster on the platform : Wordpress, Galera Mariadb, Nginx with floating ip(keepalived),ELK,Prometheus,Bacula"__*
  
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/vip2.png) 
 
 
-- *_My errors :_*
-- *First I created Wordpress + Postgres and for two days I could not make friends between the two systems. When I saw the error logs "Postgress is not supported" I realized "what am I doing" :)*
+- My errors :
+- First I created Wordpress + Postgres and for two days I could not make friends between the two systems. When I saw the error logs "Postgress is not supported" I realized "what am I doing" :)
 - My next mistake: I'm working with someone else's image and I have a lot of problems installing other software.
--I didn't understand whether I could create a cluster or not. Not believing in my skills, I create a small stand with 1 nginx and 2 Wordpress servers.
+- I didn't understand whether I could create a cluster or not. Not believing in my skills, I create a small stand with 1 nginx and 2 Wordpress servers.
 
 The next step was to build an interesting stand:
 - First: i created my image with Packer and upload to Vagrant (https://app.vagrantup.com/tulamelkii/boxes/VDebian12)
