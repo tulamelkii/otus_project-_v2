@@ -29,7 +29,7 @@
 
  **_Next step i create monitoring_**
  
-- *I tried to created monitoring with Docker. It's really cool. I created 3 docker containers on Prometheus servers: Grafana, Nodexporter agent, and also created similar docker agents on different nodes.*
+- *I created monitoring with Docker. It's really cool. I created 3 docker containers on Prometheus servers: Grafana, Nodexporter agent, and also created similar docker agents on different nodes.*
 - *i created CAdvisor for monitoring but i can't conecting to Prometheus dashbord. This is only necessary for the healthy life of my docker containers.*
  ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prometheus.png)
 ![image](https://github.com/tulamelkii/otus_project-_v2/blob/main/images/Prom3.png)
